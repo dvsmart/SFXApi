@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20180622124517_latestmodification6.cs" />
+    <Compile Remove="Migrations\20180622124656_latestmodification6.cs" />
+    <Compile Remove="Migrations\20180622124713_latestmodification6.cs" />
+    <Compile Remove="Migrations\20180622125333_latestmodification6.cs" />
+    <Compile Remove="Migrations\20180622130405_latestmodification6.cs" />
+    <Compile Remove="Migrations\20180622130533_latestmodification6.cs" />
+    <Compile Remove="Migrations\20180622130721_latestmodification6.cs" />
+    <Compile Remove="Migrations\20180927122034_Initial.cs" />
+    <Compile Remove="Migrations\20180927123315_Initial.cs" />
+    <Compile Remove="Migrations\20180927123906_Initial.cs" />
+    <Compile Remove="Migrations\20180927124013_Initial.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Q.Domain\SFX.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

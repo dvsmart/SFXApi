@@ -1,0 +1,10 @@
+﻿{
+  "defaultAssembly": "Q.Web",
+  "modules": [
+    {
+      "type": "Q.Web.Modules.InjectionModule",
+      "properties": {
+      }
+    }
+  ]
+}
