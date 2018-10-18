@@ -28,9 +28,8 @@ namespace SFX.Web.Controllers.Settings.CustomObjectManagement
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var categories = await _customEntityManagementService.GetCustomGroups();
-            var filterCategories = categories.Where(x => x.Id == id);
-            return Ok(filterCategories);
+            var categories = await _customEntityManagementService.GetCustomTemplates(id);
+            return Ok(categories);
         }
 
         [HttpPost]

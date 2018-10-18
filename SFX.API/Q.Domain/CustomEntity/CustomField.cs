@@ -6,6 +6,8 @@
 
         public int FieldTypeId { get; set; }
 
+        public int? CustomEntityId { get; set; }
+
         public int? CustomTabId { get; set; }
 
         public bool? IsMandatory { get; set; }
@@ -21,6 +23,8 @@
         public virtual CustomFieldType FieldType { get; set; }
 
         public virtual CustomTab CustomTab { get; set; }
+
+        public virtual  CustomEntity CustomEntity { get; set; }
         
     }
 }

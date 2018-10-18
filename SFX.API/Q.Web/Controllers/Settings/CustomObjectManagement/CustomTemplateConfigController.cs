@@ -16,12 +16,27 @@ namespace SFX.Web.Controllers.Settings.CustomObjectManagement
             _customEntityManagementService = customEntityManagementService;
         }
 
-        [HttpGet("{groupId}")]
-        public async Task<IActionResult> Get(int groupId)
+        [HttpGet]
+        public async Task<IActionResult> Get()
         {
-            var tabs = await _customEntityManagementService.GetCustomTemplates(groupId);
+            var templatelist = await _customEntityManagementService.GetCustomTemplates();
+            return Ok(templatelist);
+        }
+
+        //[HttpGet("{groupId}")]
+        //public async Task<IActionResult> Get(int groupId)
+        //{
+        //    var tabs = await _customEntityManagementService.GetCustomTemplates(groupId);
+        //    return Ok(tabs);
+        //}
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetTemplateDetail(int id)
+        {
+            var tabs = await _customEntityManagementService.GetTemplateDetail(id);
             return Ok(tabs);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateCustomTemplateRequest createCustomTemplateRequest)

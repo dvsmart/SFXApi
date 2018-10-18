@@ -8,6 +8,8 @@ namespace SFX.Services.Interfaces.Settings.CustomEntityManagement
     {
         Task<List<CustomGroupDto>> GetCustomGroups();
 
+        Task<List<CustomTemplateDto>> GetCustomTemplates();
+
         Task<CustomGroupTemplateDto> GetCustomTemplates(int groupId);
 
         Task<CustomTemplateTabDto> GetCustomTemplateTabs(int templateId);
@@ -21,6 +23,8 @@ namespace SFX.Services.Interfaces.Settings.CustomEntityManagement
         Task<CustomDto> AddCustomTemplateTab(CreateCustomTemplateTabRequest createCustomTemplateTabRequest);
 
         Task<CustomDto> AddCustomTemplateTabFields(CreateCustomTabFieldRequest createCustomTabFieldRequest);
+
+        Task<TemplateResponse> GetTemplateDetail(int templateId);
 
     }
 }

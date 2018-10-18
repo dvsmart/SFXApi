@@ -11,6 +11,9 @@ namespace SFX.Domain.CustomEntity
         public virtual CustomEntityGroup EntityGroup { get; set; }
 
         public virtual ICollection<CustomTab> CustomTabs { get; set; }
+
+        public virtual ICollection<CustomField> CustomFields { get; set; }
+
         public virtual ICollection<CustomEntityInstance> CustomEntityInstances { get; set; }
     }
 }

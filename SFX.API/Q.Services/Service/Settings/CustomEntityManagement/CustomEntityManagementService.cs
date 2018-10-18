@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using SFX.Domain;
 using SFX.Dtos.CustomEntity;
 using SFX.Services.Interfaces.Settings.CustomEntityManagement;
@@ -121,6 +122,18 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             }).ToList();
         }
 
+        public async Task<List<CustomTemplateDto>> GetCustomTemplates()
+        {
+            var templates = await _customTemplateRepository.GetAllAsync();
+            if (templates == null) return new List<CustomTemplateDto>();
+
+            return templates.Where(x => x.EntityGroupId == null).Select(x => new CustomTemplateDto
+            {
+                Id = x.Id,
+                TemplateName = x.TemplateName
+            }).ToList();
+        }
+
         public async Task<List<CustomTabFieldResponseDto>> GetCustomTabFields(int templateId)
         {
             var customTabFields = await _customFieldRepository.FindAllAsync(x => x.CustomTab.CustomEntityId == templateId);
@@ -157,7 +170,7 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             var customTemplateTabs = await _customTemplateRepository.FindByIdAsync(templateId);
             if (customTemplateTabs == null) return new CustomTemplateTabDto();
             var customTemplateTabDto = new CustomTemplateTabDto();
-            
+
             if (customTemplateTabs.CustomTabs.Any())
             {
                 customTemplateTabDto.TemplateTabs = customTemplateTabs.CustomTabs.Select(ct => new CustomDto
@@ -170,6 +183,60 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             customTemplateTabDto.TemplateName = customTemplateTabs.TemplateName;
             customTemplateTabDto.Id = customTemplateTabs.Id;
             return customTemplateTabDto;
+        }
+
+        public async Task<TemplateResponse> GetTemplateDetail(int templateId)
+        {
+            var template = await _customTemplateRepository.FindByIdAsync(templateId);
+            if (template == null) return new TemplateResponse();
+            var templateDetail = new TemplateResponse
+            {
+                Id = template.Id,
+                TemplateName = template.TemplateName,
+                Tabs = template.CustomTabs.Select(x => new TabResponse
+                {
+                    TabId = x.Id,
+                    TabName = x.Name,
+                    AddedBy = "vijay",
+                    AddedOn = x.AddedDate,
+                    ModifiedBy = x.ModifiedBy == default(int) ? null : "vijayk",
+                    ModifiedOn = x.ModifiedDate,
+                    IsVisible = x.IsVisible,
+                    FieldsCount = x.CustomFields.Count,
+                    Fields = x.CustomFields.Select(ctf=>new FieldResponse
+                    {
+                        ModifiedOn = ctf.ModifiedDate,
+                        ModifiedBy = ctf.ModifiedBy == default(int) ? null : "vijayk",
+                        AddedOn = ctf.AddedDate,
+                        AddedBy = "vijayk",
+                        TabId = ctf.CustomTabId,
+                        Value = ctf.DefaultValue,
+                        FieldCaption = ctf.FieldName,
+                        FieldName = $"fieldId_{ctf.Id}",
+                        FieldId = ctf.Id,
+                        IsRequired = ctf.IsMandatory.GetValueOrDefault(),
+                        IsVisible = ctf.IsVisible.GetValueOrDefault(),
+                        FieldType = ctf.FieldType.Caption
+                        
+                    }).ToHashSet()
+                }).ToHashSet(),
+                Fields = template.CustomFields.Select(cf => new FieldResponse
+                {
+                    ModifiedOn = cf.ModifiedDate,
+                    ModifiedBy = cf.ModifiedBy == default(int) ? null : "vijayk",
+                    AddedOn = cf.AddedDate,
+                    AddedBy = "vijayk",
+                    TabId = cf.CustomTabId,
+                    Value = cf.DefaultValue,
+                    FieldCaption = cf.FieldName,
+                    FieldName = $"fieldId_{cf.Id}",
+                    FieldId = cf.Id,
+                    IsRequired = cf.IsMandatory.GetValueOrDefault(),
+                    IsVisible = cf.IsVisible.GetValueOrDefault(),
+                    FieldType = cf.FieldType.Caption
+                }).ToHashSet()
+            };
+            return templateDetail;
         }
     }
 }

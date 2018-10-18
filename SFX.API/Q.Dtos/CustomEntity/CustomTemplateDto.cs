@@ -1,9 +1,10 @@
 ﻿namespace SFX.Dtos.CustomEntity
 {
-    public class CustomGroupDto
+    public class CustomTemplateDto
     {
         public int Id { get; set; }
 
-        public string GroupName { get; set; }
+        public string TemplateName { get; set; }
+
     }
 }
