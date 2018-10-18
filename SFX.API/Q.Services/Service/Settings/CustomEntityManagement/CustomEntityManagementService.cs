@@ -121,15 +121,15 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             }).ToList();
         }
 
-        public async Task<List<CustomTabFieldResponseDto>> GetCustomTabFields(int tabId)
+        public async Task<List<CustomTabFieldResponseDto>> GetCustomTabFields(int templateId)
         {
-            var customTabFields = await _customFieldRepository.FindAllAsync(x => x.CustomTabId == tabId);
+            var customTabFields = await _customFieldRepository.FindAllAsync(x => x.CustomTab.CustomEntityId == templateId);
             if (customTabFields == null) return new List<CustomTabFieldResponseDto>();
             return customTabFields.Select(ct => new CustomTabFieldResponseDto
             {
                 Id = ct.Id,
                 Caption = ct.FieldName,
-                ControlType = ct.FieldType.Caption
+                ControlType = ct.FieldType.Caption,
             }).ToList();
         }
 

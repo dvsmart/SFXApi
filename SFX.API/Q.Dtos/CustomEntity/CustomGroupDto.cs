@@ -98,6 +98,8 @@ namespace SFX.Dtos.CustomEntity
         public string Caption { get; set; }
 
         public string ControlType { get; set; }
+
+        public int TabId { get; set; }
     }
 
 

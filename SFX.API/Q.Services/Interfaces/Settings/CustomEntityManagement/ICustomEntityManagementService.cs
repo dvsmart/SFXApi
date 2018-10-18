@@ -21,5 +21,6 @@ namespace SFX.Services.Interfaces.Settings.CustomEntityManagement
         Task<CustomDto> AddCustomTemplateTab(CreateCustomTemplateTabRequest createCustomTemplateTabRequest);
 
         Task<CustomDto> AddCustomTemplateTabFields(CreateCustomTabFieldRequest createCustomTabFieldRequest);
+
     }
 }

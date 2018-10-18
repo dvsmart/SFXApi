@@ -6,7 +6,7 @@
 
         public int FieldTypeId { get; set; }
 
-        public int CustomTabId { get; set; }
+        public int? CustomTabId { get; set; }
 
         public bool? IsMandatory { get; set; }
 

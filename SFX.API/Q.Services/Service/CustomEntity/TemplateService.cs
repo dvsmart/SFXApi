@@ -49,7 +49,7 @@ namespace SFX.Services.Service.CustomEntity
                 GroupName = ce.EntityGroup.Name,
                 Id = ce.Id,
                 TemplateName = ce.TemplateName,
-                GroupId = ce.EntityGroupId
+                GroupId = ce.EntityGroupId.GetValueOrDefault()
             };
         }
 

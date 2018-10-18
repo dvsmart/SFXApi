@@ -6,7 +6,7 @@ namespace SFX.Domain.CustomEntity
     {
         public string TemplateName { get; set; }
 
-        public int EntityGroupId { get; set; }
+        public int? EntityGroupId { get; set; }
 
         public virtual CustomEntityGroup EntityGroup { get; set; }
 
