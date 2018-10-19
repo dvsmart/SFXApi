@@ -94,10 +94,11 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             {
                 Id = createCustomTabFieldRequest.Id,
                 FieldName = createCustomTabFieldRequest.Caption,
-                CustomTabId = createCustomTabFieldRequest.CustomTemplateTabId,
+                CustomTabId = createCustomTabFieldRequest.TabId,
                 IsMandatory = createCustomTabFieldRequest.IsRequired,
                 IsVisible = createCustomTabFieldRequest.IsVisible,
                 FieldTypeId = createCustomTabFieldRequest.ControlTypeId,
+                CustomEntityId = createCustomTabFieldRequest.TemplateId,
                 IsArchived = false,
                 IsDeleted = false,
                 AddedBy = 1,

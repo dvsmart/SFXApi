@@ -15,7 +15,9 @@ namespace SFX.Dtos.CustomEntity
 
         public int ControlTypeId { get; set; }
 
-        public int CustomTemplateTabId { get; set; }
+        public int? TabId { get; set; }
+
+        public int? TemplateId { get; set; }
 
         public List<CustomFieldOption> CustomFieldOptions { get; set; }
 
