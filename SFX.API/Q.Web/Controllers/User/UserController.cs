@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using SFX.Infrastructure.Mappings;
+using SFX.Services.Interfaces.Authentication;
 using SFX.Services.Interfaces.User;
 using SFX.Web.Helpers;
 using SFX.Web.Models.Request;
@@ -23,12 +24,14 @@ namespace SFX.Web.Controllers.User
         private readonly IUserService _userService;
         private readonly IOutputConverter _outputConverter;
         private readonly AppSettings _appSettings;
+        private readonly IJwtTokenHelper _jwtTokenHelper;
 
-        public UserController(IUserService userService, IOutputConverter outputConverter, IOptions<AppSettings> appSettings)
+        public UserController(IUserService userService, IJwtTokenHelper jwtTokenHelper, IOutputConverter outputConverter, IOptions<AppSettings> appSettings)
         {
             _userService = userService;
             _outputConverter = outputConverter;
             _appSettings = appSettings.Value;
+            _jwtTokenHelper = jwtTokenHelper;
         }
 
         // GET: api/User
@@ -91,27 +94,19 @@ namespace SFX.Web.Controllers.User
             if (user == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings.SecretKey);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[]
+            var claims = new[]
                 {
                     new Claim(ClaimTypes.Name, user.Id.ToString())
-                }),
-                Expires = DateTime.UtcNow.AddDays(2),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var tokenString = tokenHandler.WriteToken(token);
+                };
+            var expires = DateTime.Now.Add(new TimeSpan(00, 30, 0)).ToString();
+            var tokenString = _jwtTokenHelper.EncodeJwt("test.dvsmarttech.co.uk", expires, null, claims);
 
-            // return basic user info (without password) and token to store client side
             return Ok(new
             {
                 user.Id,
                 Username = user.UserName,
                 Token = tokenString,
-                tokenDescriptor.Expires
+                Expires = expires
             });
         }
 
