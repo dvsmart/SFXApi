@@ -54,7 +54,7 @@ namespace SFX.Web.Helpers
                             ValidateAudience = false,
                             ValidateLifetime = false,
                             ValidateIssuerSigningKey = true,
-                            ValidIssuer = "awscoreapi.dvsmarttech.co.uk",
+                            ValidIssuer = "test.dvsmarttech.co.uk",
                             IssuerSigningKey = key
                         };
                 });

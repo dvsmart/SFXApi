@@ -11,7 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using SFX.Infrastructure.Context;
+using SFX.Services.Interfaces.Authentication;
 using SFX.Services.Interfaces.User;
+using SFX.Services.Service.Authentication;
 using SFX.Web.Filters;
 using SFX.Web.Helpers;
 using SFX.Web.Modules;
@@ -54,14 +56,16 @@ namespace SFX.Web
             services.AddDbContext<AppDbContext>(options => options.UseLazyLoadingProxies().UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
 
             services.AddSwaggerDocumentation();
+            services.AddSingleton<IAuthenticationService, AuthenticationService>();
+            services.AddSingleton<IJwtTokenHelper,JwtTokenHelper>();
 
+            services.AddJwtAuthentication(Configuration);
             var builder = new ContainerBuilder();
             builder.RegisterModule(new InjectionModule());
             builder.Populate(services);
             ApplicationContainer = builder.Build();
            
             return new AutofacServiceProvider(ApplicationContainer);
-            //services.AddJwtAuthentication(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
