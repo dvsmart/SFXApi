@@ -11,9 +11,12 @@ namespace SFX.Web.Controllers.Settings.CustomObjectManagement
     {
         private readonly ICustomEntityManagementService _customEntityManagementService;
 
-        public CustomTemplateConfigController(ICustomEntityManagementService customEntityManagementService)
+        private readonly ICustomTemplateService _customTemplateService;
+
+        public CustomTemplateConfigController(ICustomEntityManagementService customEntityManagementService,ICustomTemplateService customTemplateService)
         {
             _customEntityManagementService = customEntityManagementService;
+            _customTemplateService = customTemplateService;
         }
 
         [HttpGet]
@@ -31,17 +34,24 @@ namespace SFX.Web.Controllers.Settings.CustomObjectManagement
         //}
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetTemplateDetail(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            var tabs = await _customEntityManagementService.GetTemplateDetail(id);
-            return Ok(tabs);
+            var templateModel = await _customTemplateService.GetTemplateDetail(id);
+            return new OkObjectResult(templateModel);
         }
 
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateCustomTemplateRequest createCustomTemplateRequest)
         {
-            var response = await _customEntityManagementService.AddCustomTemplate(createCustomTemplateRequest);
+            var response = await _customTemplateService.CreateTemplate(createCustomTemplateRequest);
+            return Ok(response);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] CreateCustomTemplateRequest createCustomTemplateRequest)
+        {
+            var response = await _customTemplateService.UpdateTemplate(createCustomTemplateRequest);
             return Ok(response);
         }
 
