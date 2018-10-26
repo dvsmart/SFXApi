@@ -138,7 +138,15 @@ namespace SFX.Infrastructure
 
         public virtual async Task<int> SaveAsync()
         {
-            return await _context.SaveChangesAsync();
+            try
+            {
+                return await _context.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public virtual IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)

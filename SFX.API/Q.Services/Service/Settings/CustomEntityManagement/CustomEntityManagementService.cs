@@ -53,7 +53,7 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             {
                 Id = createCustomTemplateRequest.Id,
                 TemplateName = createCustomTemplateRequest.TemplateName,
-                EntityGroupId = createCustomTemplateRequest.CustomGroupId,
+                EntityGroupId = createCustomTemplateRequest.CategoryId,
                 IsArchived = false,
                 IsDeleted = false,
                 AddedBy = 1,
@@ -135,15 +135,16 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             }).ToList();
         }
 
-        public async Task<List<CustomTabFieldResponseDto>> GetCustomTabFields(int templateId)
+        public async Task<List<CustomTabFieldResponseDto>> GetCustomTabFields(int tabId)
         {
-            var customTabFields = await _customFieldRepository.FindAllAsync(x => x.CustomTab.CustomEntityId == templateId);
+            var customTabFields = await _customFieldRepository.FindAllAsync(x => x.CustomTabId == tabId);
             if (customTabFields == null) return new List<CustomTabFieldResponseDto>();
             return customTabFields.Select(ct => new CustomTabFieldResponseDto
             {
                 Id = ct.Id,
                 Caption = ct.FieldName,
                 ControlType = ct.FieldType.Caption,
+                TabId = ct.CustomTabId.GetValueOrDefault()
             }).ToList();
         }
 
