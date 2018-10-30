@@ -87,7 +87,7 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             } : null;
         }
 
-        public async Task<CustomDto> AddCustomTemplateTabFields(CreateCustomTabFieldRequest createCustomTabFieldRequest)
+        public async Task<CustomDto> AddCustomTemplateTabFields(CreateFieldRequest createCustomTabFieldRequest)
         {
 
             var field = new Domain.CustomEntity.CustomField
@@ -205,7 +205,7 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
                     ModifiedOn = x.ModifiedDate,
                     IsVisible = x.IsVisible,
                     FieldsCount = x.CustomFields.Count,
-                    Fields = x.CustomFields.Select(ctf=>new FieldResponse
+                    Fields = x.CustomFields.Select(ctf => new FieldResponse
                     {
                         ModifiedOn = ctf.ModifiedDate,
                         ModifiedBy = ctf.ModifiedBy == default(int) ? null : "vijayk",
@@ -219,7 +219,7 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
                         IsRequired = ctf.IsMandatory.GetValueOrDefault(),
                         IsVisible = ctf.IsVisible.GetValueOrDefault(),
                         FieldType = ctf.FieldType.Caption
-                        
+
                     }).ToHashSet()
                 }).ToHashSet(),
                 Fields = template.CustomFields.Select(cf => new FieldResponse
@@ -239,6 +239,41 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
                 }).ToHashSet()
             };
             return templateDetail;
+        }
+
+        public async Task<HashSet<CustomFieldResponseDto>> GetCustomFields(int templateId)
+        {
+            var template = await _customTemplateRepository.FindByIdAsync(templateId);
+            if (template == null) return new HashSet<CustomFieldResponseDto>();
+
+            var tabIds = template.CustomTabs?.Where(x=> x.CustomFields.Any()).Select(x => x.Id).ToHashSet();
+            var tabFields = _customFieldRepository.FindAll(x => tabIds.Contains(x.Id)).Select(f =>
+                new CustomFieldResponseDto()
+                {
+                    Id = f.Id,
+                    TabId = f.CustomTabId.GetValueOrDefault(),
+                    TabName = f.CustomTab.Name,
+                    IsRequired = f.IsMandatory.GetValueOrDefault(),
+                    Caption = f.FieldName,
+                    ControlType = f.FieldType.Caption,
+                    Key = $"field_{f.Id}",
+                    SortOrder = f.SortOrder ?? 1
+                }).ToArray();
+
+            var fields = template.CustomFields?.Select(f => new CustomFieldResponseDto
+            {
+                Id = f.Id,
+                TemplateName = f.CustomEntity.TemplateName,
+                IsRequired = f.IsMandatory.GetValueOrDefault(),
+                Caption = f.FieldName,
+                ControlType = f.FieldType.Caption,
+                TemplateId = f.CustomEntityId.GetValueOrDefault(),
+                Key = $"field_{f.Id}",
+                SortOrder = f.SortOrder ?? 1
+            }).ToArray();
+
+            var totalFields = tabFields.Union(fields).ToHashSet();
+            return totalFields;
         }
     }
 }

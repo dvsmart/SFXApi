@@ -2,7 +2,7 @@
 
 namespace SFX.Dtos.CustomEntity
 {
-    public class CreateCustomTabFieldRequest
+    public class CreateFieldRequest
     {
 
         public int Id { get; set; } = default(int);

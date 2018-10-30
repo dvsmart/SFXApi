@@ -7,25 +7,26 @@ namespace SFX.Web.Controllers.Settings.CustomObjectManagement
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomFieldConfigController : ControllerBase
+    public class CustomTabFieldConfigController : ControllerBase
     {
         private readonly ICustomEntityManagementService _customEntityManagementService;
 
-        public CustomFieldConfigController(ICustomEntityManagementService customEntityManagementService)
+        public CustomTabFieldConfigController(ICustomEntityManagementService customEntityManagementService)
         {
             _customEntityManagementService = customEntityManagementService;
         }
 
-        [HttpGet("{tabId}")]
-        public async Task<IActionResult> Get(int tabId)
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
         {
-            var tabFields = await _customEntityManagementService.GetCustomTabFields(tabId);
+            var tabFields = await _customEntityManagementService.GetCustomTabFields(id);
             return Ok(tabFields);
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateCustomTabFieldRequest createCustomTabFieldRequest)
+        public async Task<IActionResult> Post([FromBody] CreateFieldRequest createCustomTabFieldRequest)
         {
             var response = await _customEntityManagementService.AddCustomTemplateTabFields(createCustomTabFieldRequest);
             return Ok(response);
