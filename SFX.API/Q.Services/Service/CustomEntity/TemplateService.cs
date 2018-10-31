@@ -63,16 +63,16 @@ namespace SFX.Services.Service.CustomEntity
                 TabId = x.Id,
                 SortOrder = x.SortOrder,
                 IsVisible = x.IsVisible,
-                CustomFields = x.CustomFields.Select(y => new CustomFieldDto
-                {
-                    Caption = y.FieldName,
-                    SortOrder = y.SortOrder,
-                    Value = y.DefaultValue,
-                    FieldId = y.Id,
-                    Type = y.FieldType.Type,
-                    IsVisible = y.IsVisible ?? true,
-                    IsRequired = y.IsMandatory ?? false,
-                })
+                //CustomFields = x.CustomFields.Select(y => new CustomFieldDto
+                //{
+                //    Caption = y.FieldName,
+                //    SortOrder = y.SortOrder,
+                //    Value = y.DefaultValue,
+                //    FieldId = y.Id,
+                //    Type = y.FieldType.Type,
+                //    IsVisible = y.IsVisible ?? true,
+                //    IsRequired = y.IsMandatory ?? false,
+                //})
             }).ToList();
 
             var customEntityRecordDto = new CustomEntityDefintionDto

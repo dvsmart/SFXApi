@@ -23,10 +23,32 @@ namespace SFX.Web.Controllers.Settings.CustomObjectManagement
             return Ok(tabFields);
         }
 
+        [Route("[action]/{tabId}")]
+        [HttpGet]
+        public async Task<IActionResult> GetById(int tabId)
+        {
+            var tabDetail = await _customEntityManagementService.GetTabDetail(tabId);
+            return new OkObjectResult(tabDetail);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateCustomTemplateTabRequest createCustomTemplateTabRequest)
         {
             var response = await _customEntityManagementService.AddCustomTemplateTab(createCustomTemplateTabRequest);
+            return Ok(response);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var response = await _customEntityManagementService.DeleteCustomTab(id);
+            return Ok(response);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] CreateCustomTemplateTabRequest createCustomTemplateTabRequest)
+        {
+            var response = await _customEntityManagementService.UpdateCustomTab(createCustomTemplateTabRequest);
             return Ok(response);
         }
     }

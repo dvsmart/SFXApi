@@ -28,5 +28,10 @@ namespace SFX.Services.Interfaces.Settings.CustomEntityManagement
 
         Task<TemplateResponse> GetTemplateDetail(int templateId);
 
+        Task<CustomTabDto> GetTabDetail(int tabId);
+
+        Task<bool> DeleteCustomTab(int id);
+
+        Task<CustomTabDto> UpdateCustomTab(CreateCustomTemplateTabRequest createCustomTemplateTabRequest);
     }
 }

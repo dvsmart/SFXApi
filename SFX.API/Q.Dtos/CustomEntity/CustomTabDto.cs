@@ -4,10 +4,6 @@ namespace SFX.Dtos.CustomEntity
 {
     public class CustomTabDto
     {
-        public CustomTabDto()
-        {
-            CustomFields = new List<CustomFieldDto>();
-        }
 
         public int TabId { get; set; }
 
@@ -17,7 +13,9 @@ namespace SFX.Dtos.CustomEntity
 
         public bool IsVisible { get; set; }
 
-        public IEnumerable<CustomFieldDto> CustomFields { get; set; }
+        public int CustomTemplateId { get; set; }
+
+        //public IEnumerable<CustomFieldDto> CustomFields { get; set; }
     }
 
 

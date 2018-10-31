@@ -72,7 +72,7 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             var tab = new Domain.CustomEntity.CustomTab
             {
                 Id = createCustomTemplateTabRequest.Id,
-                Name = createCustomTemplateTabRequest.TabName,
+                Name = createCustomTemplateTabRequest.Caption,
                 CustomEntityId = createCustomTemplateTabRequest.CustomTemplateId,
                 IsArchived = false,
                 IsDeleted = false,
@@ -246,7 +246,7 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             var template = await _customTemplateRepository.FindByIdAsync(templateId);
             if (template == null) return new HashSet<CustomFieldResponseDto>();
 
-            var tabIds = template.CustomTabs?.Where(x=> x.CustomFields.Any()).Select(x => x.Id).ToHashSet();
+            var tabIds = template.CustomTabs?.Where(x => x.CustomFields.Any()).Select(x => x.Id).ToHashSet();
             var tabFields = _customFieldRepository.FindAll(x => tabIds.Contains(x.Id)).Select(f =>
                 new CustomFieldResponseDto()
                 {
@@ -274,6 +274,44 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
 
             var totalFields = tabFields.Union(fields).ToHashSet();
             return totalFields;
+        }
+
+        public async Task<CustomTabDto> GetTabDetail(int tabId)
+        {
+            var tabDetail = await _customTabRepository.FindByIdAsync(tabId);
+            if (tabDetail == null) return new CustomTabDto();
+            var detail = new CustomTabDto
+            {
+                TabId = tabDetail.Id,
+                Caption = tabDetail.Name,
+                CustomTemplateId = tabDetail.CustomEntityId,
+                IsVisible = tabDetail.IsVisible,
+                SortOrder = tabDetail.SortOrder ?? 1,
+            };
+            return detail;
+        }
+
+        public async Task<bool> DeleteCustomTab(int id)
+        {
+            var tab = await _customTabRepository.FindByIdAsync(id);
+            var response = await _customTabRepository.DeleteAsync(tab);
+            return response > 0 ? true : false;
+        }
+
+        public async Task<CustomTabDto> UpdateCustomTab(CreateCustomTemplateTabRequest createCustomTemplateTabRequest)
+        {
+            var tab = await _customTabRepository.FindByIdAsync(createCustomTemplateTabRequest.Id);
+            var tabDetail = await _customTabRepository.UpdateAsync(tab, tab.Id);
+            if (tabDetail == null) return new CustomTabDto();
+            var detail = new CustomTabDto
+            {
+                TabId = tabDetail.Id,
+                Caption = tabDetail.Name,
+                CustomTemplateId = tabDetail.CustomEntityId,
+                IsVisible = tabDetail.IsVisible,
+                SortOrder = tabDetail.SortOrder ?? 1,
+            };
+            return detail;
         }
     }
 }

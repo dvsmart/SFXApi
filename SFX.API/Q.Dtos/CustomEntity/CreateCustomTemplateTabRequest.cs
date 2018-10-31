@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
 
-        public string TabName { get; set; }
+        public string Caption { get; set; }
 
         public int CustomTemplateId { get; set; }
 
