@@ -90,6 +90,9 @@ namespace SFX.Web.Modules
             services.AddTransient<ITaskStatusService, TaskStatusService>();
             services.AddTransient<IUserService, UserService>();
 
+            //API
+            services.AddTransient<IPresenter, Presenter>();
+
         }
     }
 }

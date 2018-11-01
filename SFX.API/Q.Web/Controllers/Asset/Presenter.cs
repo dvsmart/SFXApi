@@ -8,7 +8,7 @@ using SFX.Web.Models.Asset;
 
 namespace SFX.Web.Controllers.Asset
 {
-    public sealed class Presenter
+    public class Presenter : IPresenter
     {
         public IActionResult ViewModel { get; private set; }
 

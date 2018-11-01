@@ -18,9 +18,9 @@ namespace SFX.Web.Controllers.Asset
         private readonly IAssetPropertyService _assetPropertyService;
         private readonly IOutputConverter _outputConverter;
 
-        private readonly Presenter _presenter;
+        private readonly IPresenter _presenter;
 
-        public AssetPropertiesController(IAssetPropertyService assetPropertyService, IOutputConverter outputConverter,Presenter presenter )
+        public AssetPropertiesController(IAssetPropertyService assetPropertyService, IOutputConverter outputConverter, IPresenter presenter )
         {
             _assetPropertyService = assetPropertyService;
             _outputConverter = outputConverter;

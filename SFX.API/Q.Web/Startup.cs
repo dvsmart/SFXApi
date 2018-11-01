@@ -29,7 +29,7 @@ namespace SFX.Web
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowSpecificOrigin",
-                    config => config.WithOrigins("http://localhost:4200", "https://qpocweb.azurewebsites.net").AllowAnyMethod().AllowAnyHeader());
+                    config => config.WithOrigins("http://localhost:4200", "http://localhost:5000").AllowAnyMethod().AllowAnyHeader());
             });
 
             services.AddMvc(options =>
