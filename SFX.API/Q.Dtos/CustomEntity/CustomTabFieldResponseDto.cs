@@ -8,6 +8,8 @@
 
         public string ControlType { get; set; }
 
+        public int ControlTypeId { get; set; }
+
         public bool IsRequired { get; set; }
 
         public int SortOrder { get; set; }

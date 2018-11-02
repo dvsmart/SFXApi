@@ -25,7 +25,7 @@ namespace SFX.Web.Controllers.Settings.CustomObjectManagement
 
         [Route("[action]/{tabId}")]
         [HttpGet]
-        public async Task<IActionResult> GetById(int tabId)
+        public async Task<IActionResult> GetTabById(int tabId)
         {
             var tabDetail = await _customEntityManagementService.GetTabDetail(tabId);
             return new OkObjectResult(tabDetail);

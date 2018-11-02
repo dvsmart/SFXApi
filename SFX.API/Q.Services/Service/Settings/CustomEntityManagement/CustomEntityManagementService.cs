@@ -316,5 +316,24 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
                 IsOptional = customTab.IsOptional
             };
         }
+
+        public async Task<CustomTabFieldResponseDto> GetCustomFieldDetail(int fieldId)
+        {
+            var field = await _customFieldRepository.FindByIdAsync(fieldId);
+            if(field == null) return  new CustomTabFieldResponseDto();
+            var fieldDto = new CustomTabFieldResponseDto
+            {
+                Id = field.Id,
+                TabId = field.CustomTabId.GetValueOrDefault(),
+                TabName = field.CustomTab.Name,
+                IsRequired = field.IsMandatory.GetValueOrDefault(),
+                Caption = field.FieldName,
+                SortOrder = field.SortOrder ?? 1,
+                ControlType = field.FieldType.Caption,
+                Key = $"field_{field.Id}",
+                ControlTypeId = field.FieldTypeId
+            };
+            return fieldDto;
+        }
     }
 }

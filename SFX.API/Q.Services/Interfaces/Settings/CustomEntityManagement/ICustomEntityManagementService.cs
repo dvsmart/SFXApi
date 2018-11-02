@@ -18,6 +18,8 @@ namespace SFX.Services.Interfaces.Settings.CustomEntityManagement
 
         Task<List<CustomTabFieldResponseDto>> GetCustomTabFields(int tabId);
 
+        Task<CustomTabFieldResponseDto> GetCustomFieldDetail(int fieldId);
+
         Task<CustomDto> AddCustomGroup(CreateCustomGroupDto createCustomGroupRequest);
 
         Task<CustomDto> AddCustomTemplate(CreateCustomTemplateRequest createCustomTemplateRequest);
