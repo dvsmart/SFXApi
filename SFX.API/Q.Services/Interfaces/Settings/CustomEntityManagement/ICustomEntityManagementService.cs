@@ -22,9 +22,9 @@ namespace SFX.Services.Interfaces.Settings.CustomEntityManagement
 
         Task<CustomDto> AddCustomTemplate(CreateCustomTemplateRequest createCustomTemplateRequest);
 
-        Task<CustomDto> AddCustomTemplateTab(CreateCustomTemplateTabRequest createCustomTemplateTabRequest);
+        Task<CustomTabDto> AddCustomTemplateTab(CreateCustomTemplateTabRequest createCustomTemplateTabRequest);
 
-        Task<CustomDto> AddCustomTemplateTabFields(CreateFieldRequest createCustomTabFieldRequest);
+        Task<CustomTabFieldResponseDto> AddCustomTemplateTabFields(CreateFieldRequest createCustomTabFieldRequest);
 
         Task<TemplateResponse> GetTemplateDetail(int templateId);
 

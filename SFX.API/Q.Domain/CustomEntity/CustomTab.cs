@@ -10,6 +10,8 @@ namespace SFX.Domain.CustomEntity
 
         public short? SortOrder { get; set; }
 
+        public bool IsOptional { get; set; }
+
         public int CustomEntityId { get; set; }
 
         public virtual CustomEntity CustomEntity { get; set; }

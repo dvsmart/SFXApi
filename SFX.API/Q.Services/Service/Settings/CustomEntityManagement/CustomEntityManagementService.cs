@@ -67,7 +67,7 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             } : null;
         }
 
-        public async Task<CustomDto> AddCustomTemplateTab(CreateCustomTemplateTabRequest createCustomTemplateTabRequest)
+        public async Task<CustomTabDto> AddCustomTemplateTab(CreateCustomTemplateTabRequest createCustomTemplateTabRequest)
         {
             var tab = new Domain.CustomEntity.CustomTab
             {
@@ -80,14 +80,10 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
                 AddedDate = DateTime.UtcNow
             };
             var response = await _customTabRepository.AddAsync(tab);
-            return response.Id != default(int) ? new CustomDto
-            {
-                Id = response.Id,
-                Caption = response.Name
-            } : null;
+            return MapCustomTabDto(response);
         }
 
-        public async Task<CustomDto> AddCustomTemplateTabFields(CreateFieldRequest createCustomTabFieldRequest)
+        public async Task<CustomTabFieldResponseDto> AddCustomTemplateTabFields(CreateFieldRequest createCustomTabFieldRequest)
         {
 
             var field = new Domain.CustomEntity.CustomField
@@ -105,10 +101,16 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
                 AddedDate = DateTime.UtcNow
             };
             var response = await _customFieldRepository.AddAsync(field);
-            return response.Id != default(int) ? new CustomDto
+            return response.Id != default(int) ? new CustomTabFieldResponseDto
             {
                 Id = response.Id,
-                Caption = response.FieldName
+                Caption = response.FieldName,
+                TabId = response.CustomTabId.GetValueOrDefault(),
+                IsRequired = response.IsMandatory.GetValueOrDefault(),
+                TabName = response.CustomTab.Name,
+                SortOrder = response.SortOrder ?? 1,
+                ControlType = response.FieldType.Caption,
+                Key = $"field_{response.Id}",
             } : null;
         }
 
@@ -139,12 +141,16 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
         {
             var customTabFields = await _customFieldRepository.FindAllAsync(x => x.CustomTabId == tabId);
             if (customTabFields == null) return new List<CustomTabFieldResponseDto>();
-            return customTabFields.Select(ct => new CustomTabFieldResponseDto
+            return customTabFields.Select(response => new CustomTabFieldResponseDto
             {
-                Id = ct.Id,
-                Caption = ct.FieldName,
-                ControlType = ct.FieldType.Caption,
-                TabId = ct.CustomTabId.GetValueOrDefault()
+                Id = response.Id,
+                Caption = response.FieldName,
+                TabId = response.CustomTabId.GetValueOrDefault(),
+                IsRequired = response.IsMandatory.GetValueOrDefault(),
+                TabName = response.CustomTab.Name,
+                SortOrder = response.SortOrder ?? 1,
+                ControlType = response.FieldType.Caption,
+                Key = $"field_{response.Id}",
             }).ToList();
         }
 
@@ -280,15 +286,7 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
         {
             var tabDetail = await _customTabRepository.FindByIdAsync(tabId);
             if (tabDetail == null) return new CustomTabDto();
-            var detail = new CustomTabDto
-            {
-                TabId = tabDetail.Id,
-                Caption = tabDetail.Name,
-                CustomTemplateId = tabDetail.CustomEntityId,
-                IsVisible = tabDetail.IsVisible,
-                SortOrder = tabDetail.SortOrder ?? 1,
-            };
-            return detail;
+            return MapCustomTabDto(tabDetail);
         }
 
         public async Task<bool> DeleteCustomTab(int id)
@@ -303,15 +301,20 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             var tab = await _customTabRepository.FindByIdAsync(createCustomTemplateTabRequest.Id);
             var tabDetail = await _customTabRepository.UpdateAsync(tab, tab.Id);
             if (tabDetail == null) return new CustomTabDto();
-            var detail = new CustomTabDto
+            return MapCustomTabDto(tabDetail);
+        }
+
+        private CustomTabDto MapCustomTabDto(Domain.CustomEntity.CustomTab customTab)
+        {
+            return new CustomTabDto()
             {
-                TabId = tabDetail.Id,
-                Caption = tabDetail.Name,
-                CustomTemplateId = tabDetail.CustomEntityId,
-                IsVisible = tabDetail.IsVisible,
-                SortOrder = tabDetail.SortOrder ?? 1,
+                Id = customTab.Id,
+                Caption = customTab.Name,
+                IsVisible = customTab.IsVisible,
+                CustomTemplateId = customTab.CustomEntityId,
+                SortOrder = customTab.SortOrder ?? 1,
+                IsOptional = customTab.IsOptional
             };
-            return detail;
         }
     }
 }

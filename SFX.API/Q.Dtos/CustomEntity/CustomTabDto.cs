@@ -4,8 +4,7 @@ namespace SFX.Dtos.CustomEntity
 {
     public class CustomTabDto
     {
-
-        public int TabId { get; set; }
+        public int Id { get; set; }
 
         public string Caption { get; set; }
 
@@ -15,16 +14,8 @@ namespace SFX.Dtos.CustomEntity
 
         public int CustomTemplateId { get; set; }
 
-        //public IEnumerable<CustomFieldDto> CustomFields { get; set; }
+        public bool IsOptional { get; set; }
+
     }
-
-
-    public class CustomTabResponseDto
-    {
-        public int Id { get; set; }
-
-        public string TabName { get; set; }
-
-        public int FieldsCount { get; set; }
-    }
+    
 }

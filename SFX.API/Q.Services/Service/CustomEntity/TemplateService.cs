@@ -60,9 +60,10 @@ namespace SFX.Services.Service.CustomEntity
             var tabFields = ce.CustomTabs.Select(x => new CustomTabDto
             {
                 Caption = x.Name,
-                TabId = x.Id,
+                Id = x.Id,
                 SortOrder = x.SortOrder,
                 IsVisible = x.IsVisible,
+                CustomTemplateId = x.CustomEntityId
                 //CustomFields = x.CustomFields.Select(y => new CustomFieldDto
                 //{
                 //    Caption = y.FieldName,
