@@ -16,10 +16,10 @@ namespace SFX.Web.Controllers.Settings.CustomObjectManagement
             _customEntityManagementService = customEntityManagementService;
         }
 
-        [HttpGet("{tabId}")]
-        public async Task<IActionResult> Get(int tabId)
+        [HttpGet("{templateId}")]
+        public async Task<IActionResult> Get(int templateId)
         {
-            var fieldDetail = await _customEntityManagementService.GetCustomTabFields(tabId);
+            var fieldDetail = await _customEntityManagementService.GetCustomTabFields(templateId);
             return Ok(fieldDetail);
         }
 
