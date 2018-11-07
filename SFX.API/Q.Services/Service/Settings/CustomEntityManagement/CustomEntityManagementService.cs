@@ -106,12 +106,7 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
                 Id = response.Id,
                 Caption = response.FieldName,
                 TabId = response.CustomTabId.GetValueOrDefault(),
-                IsRequired = response.IsMandatory.GetValueOrDefault(),
-                TabName = response.CustomTab.Name,
-                SortOrder = response.SortOrder ?? 1,
-                ControlType = response.FieldType.Caption,
                 TemplateId = response.CustomEntityId.GetValueOrDefault(),
-                Key = $"field_{response.Id}",
             } : null;
         }
 
@@ -152,6 +147,8 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
                 SortOrder = response.SortOrder ?? 1,
                 ControlType = response.FieldType.Caption,
                 Key = $"field_{response.Id}",
+                TemplateId = response.CustomEntityId.GetValueOrDefault(),
+                ControlTypeId = response.FieldTypeId
             }).ToList();
         }
 
