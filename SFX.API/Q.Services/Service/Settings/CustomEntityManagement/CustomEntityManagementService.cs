@@ -110,6 +110,7 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
                 TabName = response.CustomTab.Name,
                 SortOrder = response.SortOrder ?? 1,
                 ControlType = response.FieldType.Caption,
+                TemplateId = response.CustomEntityId.GetValueOrDefault(),
                 Key = $"field_{response.Id}",
             } : null;
         }

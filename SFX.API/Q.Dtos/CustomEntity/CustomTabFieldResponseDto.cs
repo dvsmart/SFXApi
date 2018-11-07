@@ -14,6 +14,8 @@
 
         public int SortOrder { get; set; }
 
+        public int TemplateId { get; set; }
+
         public int TabId { get; set; }
         public string Key { get; set; }
         public string TabName { get; set; }
