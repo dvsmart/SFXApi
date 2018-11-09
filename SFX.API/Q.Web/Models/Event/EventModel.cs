@@ -11,9 +11,9 @@ namespace SFX.Web.Models.Event
 
         public string Location { get; set; }
 
-        public DateTime? StartDate { get; set; }
+        public DateTime? Start { get; set; }
 
-        public DateTime? DueDate { get; set; }
+        public DateTime? End { get; set; }
 
         public int? RecurrenceTypeId { get; set; }
 

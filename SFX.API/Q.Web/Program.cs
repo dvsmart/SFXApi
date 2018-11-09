@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -29,7 +28,6 @@ namespace SFX.Web
                     config.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
                     config.AddEnvironmentVariables();
                 })
-                .ConfigureServices(services => services.AddAutofac())
                 .Build();
     }
 }

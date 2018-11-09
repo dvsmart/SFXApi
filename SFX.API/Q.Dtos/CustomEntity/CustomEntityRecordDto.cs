@@ -23,11 +23,6 @@ namespace SFX.Dtos.CustomEntity
 
     public class CustomEntityDefintionDto
     {
-        public CustomEntityDefintionDto()
-        {
-            CustomTabs = new List<CustomTabDto>();
-        }
-
         public string TemplateName { get; set; }
         public int Id { get; set; }
 
@@ -35,7 +30,7 @@ namespace SFX.Dtos.CustomEntity
 
         public int GroupId { get; set; }
 
-        public List<CustomTabDto> CustomTabs { get; set; }
+        public List<TemplateTabDto> Tabs { get; set; } = new List<TemplateTabDto>();
     }
 
     public class CustomEntityTemplate 

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SFX.Domain;
+using SFX.Domain.Event;
 using SFX.Domain.Menu;
 using SFX.Web.Models.Assessment;
 using SFX.Web.Models.CustomEntity;
@@ -69,8 +71,8 @@ namespace SFX.Web.Mappings
             {
                 AllDayEvent = eventDto.AllDayEvent,
                 Description = eventDto.Description,
-                DueDate = eventDto.DueDate,
-                StartDate = eventDto.StartDate,
+                End = eventDto.DueDate,
+                Start = eventDto.StartDate,
                 IsCompleted = eventDto.IsCompleted,
                 RecurrenceType = eventDto.RecurrenceType.Name,
                 Id = eventDto.Id,
@@ -79,19 +81,19 @@ namespace SFX.Web.Mappings
             };
         }
 
-        public static Domain.Event.Event MapToEventDto(EventModel eventModel)
+        public static Event MapToEventDto(EventModel eventModel)
         {
-            return new Domain.Event.Event
+            return new Event
             {
                 AllDayEvent = eventModel.AllDayEvent,
                 Description = eventModel.Description,
-                DueDate = eventModel.DueDate,
-                StartDate = eventModel.StartDate,
+                DueDate = eventModel.End,
+                StartDate = eventModel.Start,
                 IsCompleted = eventModel.IsCompleted,
                 RecurrenceTypeId = eventModel.RecurrenceTypeId,
                 Id = eventModel.Id,
                 Title = eventModel.Title,
-                AddedDate = eventModel.AddedDate,
+                AddedDate = DateTime.UtcNow,
                 AddedBy = 1,
                 Location = eventModel.Location,
                 ModifiedBy = eventModel.Id == default(int) ? (int?)null : 1,
@@ -217,6 +219,23 @@ namespace SFX.Web.Mappings
                               }).ToList();
 
             return menuItemList.OrderBy(x => x.SortOrder).ToList();
+        }
+
+        public static List<EventModel> MapEvents(PagedResult<Event> events)
+        {
+            return events.Results?.Select(x => new EventModel
+            {
+                Id = x.Id,
+                End = x.DueDate,
+                Start = x.StartDate,
+                AddedDate = x.AddedDate,
+                AllDayEvent = x.AllDayEvent,
+                Description = x.Description,
+                IsCompleted = x.IsCompleted,
+                Location = x.Location,
+                RecurrenceTypeId = x.RecurrenceTypeId,
+                Title = x.Title
+            }).ToList();
         }
     }
 }

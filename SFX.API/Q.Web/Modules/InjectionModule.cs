@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using Autofac;
 using Microsoft.Extensions.DependencyInjection;
 using SFX.Domain;
 using SFX.Domain.Assessment;

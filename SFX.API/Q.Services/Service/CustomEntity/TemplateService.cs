@@ -57,31 +57,29 @@ namespace SFX.Services.Service.CustomEntity
         {
             var ce = await _customTemplateRepository.FindAsync(x => x.Id == id);
             if (ce == null) return new CustomEntityDefintionDto();
-            var tabFields = ce.CustomTabs.Select(x => new CustomTabDto
+            var tabFields = ce.CustomTabs.Select(x => new TemplateTabDto()
             {
-                Caption = x.Name,
+                TabName = x.Name,
                 Id = x.Id,
                 SortOrder = x.SortOrder,
                 IsVisible = x.IsVisible,
-                CustomTemplateId = x.CustomEntityId
-                //CustomFields = x.CustomFields.Select(y => new CustomFieldDto
-                //{
-                //    Caption = y.FieldName,
-                //    SortOrder = y.SortOrder,
-                //    Value = y.DefaultValue,
-                //    FieldId = y.Id,
-                //    Type = y.FieldType.Type,
-                //    IsVisible = y.IsVisible ?? true,
-                //    IsRequired = y.IsMandatory ?? false,
-                //})
+                Fields = x.CustomFields.Select(y => new TabFieldDto()
+                {
+                    Caption = y.FieldName,
+                    SortOrder = y.SortOrder.GetValueOrDefault(),
+                    Id = y.Id,
+                    Type = y.FieldType.Type,
+                    IsVisible = y.IsVisible ?? true,
+                    IsRequired = y.IsMandatory ?? false,
+                }).ToList()
             }).ToList();
 
             var customEntityRecordDto = new CustomEntityDefintionDto
             {
                 Id = ce.Id,
                 TemplateName = ce.TemplateName,
-                CustomTabs = tabFields,
-                GroupName = ce.EntityGroup.Name
+                Tabs = tabFields,
+                GroupName = ce.EntityGroup?.Name
             };
             return customEntityRecordDto;
         }

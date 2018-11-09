@@ -6,14 +6,15 @@ using Microsoft.IdentityModel.Tokens;
 using SFX.Services.Interfaces.Authentication;
 namespace SFX.Services.Service.Authentication
 {
-    public class AuthenticationService : IAuthenticationService
+    public sealed class AuthenticationService : IAuthenticationService
     {
         private readonly IConfiguration _configuration;
-        private SecretManagerRsaSecret _secretManagerRsaSecret;
+        private static SecretManagerRsaSecret _secretManagerRsaSecret;
 
         public AuthenticationService(IConfiguration configuration)
         {
             _configuration = configuration;
+            _secretManagerRsaSecret = new SecretManagerRsaSecret();
             LoadSecretsFromAppSettings();
         }
 
@@ -75,8 +76,6 @@ namespace SFX.Services.Service.Authentication
             var secretSection = _configuration.GetSection("secrets");
             if (secretSection == null)
                 return;
-
-            _secretManagerRsaSecret = new SecretManagerRsaSecret();
 
             if (secretSection.GetSection("rsa").Exists())
             {

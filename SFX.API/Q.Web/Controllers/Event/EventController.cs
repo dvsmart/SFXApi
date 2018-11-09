@@ -6,11 +6,11 @@ using SFX.Infrastructure.Mappings;
 using SFX.Services.Interfaces.Event;
 using SFX.Web.Filters;
 using SFX.Web.Helpers;
+using SFX.Web.Mappings;
 using SFX.Web.Models.Event;
 
 namespace SFX.Web.Controllers.Event
 {
-    [Authorize]
     [Produces("application/json")]
     [Route("api/Event")]
     [ValidateModel]
@@ -32,11 +32,20 @@ namespace SFX.Web.Controllers.Event
             var data = await _eventService.GetAll(page,pageSize);
             if (data != null)
             {
-                var tasks = data.Results != null ? _outputConverter.Map<List<EventModel>>(data.Results) : null;
+                var tasks = Mapper.MapEvents(data);
                 var result = tasks.GetPagedResult(data.PageSize, data.CurrentPage, data.RowCount);
                 return new OkObjectResult(result);
             }
             return new BadRequestResult();
+        }
+
+        [Route("[action]/{id}")]
+        [HttpGet]
+        public async Task<IActionResult> GetEventById(int id)
+        {
+            var data = await _eventService.GetById(id);
+            var eventDetail = _outputConverter.Map<EventModel>(data);
+            return new OkObjectResult(eventDetail);
         }
 
         [HttpPost]

@@ -72,7 +72,7 @@ namespace SFX.Web.Mappings
         }
     }
 
-    public class AssessmentProfile: Profile
+    public class AssessmentProfile : Profile
     {
         public AssessmentProfile()
         {
@@ -103,11 +103,13 @@ namespace SFX.Web.Mappings
     {
         public EventProfile()
         {
-            CreateMap<Event, EventModel>().ForMember(x => x.RecurrenceType, o => o.MapFrom(s => s.RecurrenceType.Name));
+            CreateMap<Event, EventModel>().ForMember(x => x.RecurrenceType, o => o.MapFrom(s => s.RecurrenceType.Name))
+                .ForMember(x => x.Start, o => o.MapFrom(s => s.StartDate))
+                .ForMember(x => x.End, o => o.MapFrom(s => s.DueDate));
         }
     }
 
-    public class CustomEntityProfile: Profile
+    public class CustomEntityProfile : Profile
     {
         public CustomEntityProfile()
         {

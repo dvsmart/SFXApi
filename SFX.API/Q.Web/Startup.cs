@@ -1,5 +1,4 @@
-﻿using Autofac;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -17,8 +16,6 @@ namespace SFX.Web
         {
             Configuration = configuration;
         }
-
-        public IContainer ApplicationContainer { get; private set; }
 
         public IConfiguration Configuration { get; }
 
