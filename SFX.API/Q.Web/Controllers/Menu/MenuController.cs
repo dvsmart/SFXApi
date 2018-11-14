@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SFX.Domain.Menu;
 using SFX.Services.Interfaces.Menu;
@@ -9,6 +10,7 @@ using SFX.Web.Models.Menu;
 
 namespace SFX.Web.Controllers.Menu
 {
+    [Authorize]
     [Produces("application/json")]
     [Route("api/Menu")]
     public class MenuController : Controller

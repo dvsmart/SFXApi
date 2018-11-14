@@ -126,10 +126,13 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             var templates = await _customTemplateRepository.GetAllAsync();
             if (templates == null) return new List<CustomTemplateDto>();
 
-            return templates.Where(x => x.EntityGroupId == null).Select(x => new CustomTemplateDto
+            return templates.Select(x => new CustomTemplateDto
             {
                 Id = x.Id,
-                TemplateName = x.TemplateName
+                TemplateName = x.TemplateName,
+                CategoryId = x.EntityGroupId.GetValueOrDefault(),
+                CategoryName = x.EntityGroup?.Name,
+                Summary = $"Tabs: {x.CustomTabs.Count} - Fields: {x.CustomFields.Count}"
             }).ToList();
         }
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace SFX.Dtos.CustomEntity
 {
@@ -16,6 +17,8 @@ namespace SFX.Dtos.CustomEntity
 
         public bool IsOptional { get; set; }
 
+        public IList<CustomFieldDto> CustomFields { get; set; } = new List<CustomFieldDto>();
+
     }
-    
+
 }
