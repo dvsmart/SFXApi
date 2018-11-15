@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using SFX.Dtos.CustomEntity;
 using SFX.Services.Interfaces.Settings.CustomEntityManagement;
 
 namespace SFX.Web.Controllers.Settings.CustomObjectManagement

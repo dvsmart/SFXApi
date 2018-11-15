@@ -10,7 +10,9 @@ using SFX.Domain.Menu;
 using SFX.Domain.Task;
 using SFX.Domain.User;
 using SFX.Infrastructure;
+using SFX.Infrastructure.IRepositories;
 using SFX.Infrastructure.Mappings;
+using SFX.Infrastructure.Repositories;
 using SFX.Services.Interfaces.Assessment;
 using SFX.Services.Interfaces.Asset.Properties;
 using SFX.Services.Interfaces.Authentication;
@@ -65,6 +67,7 @@ namespace SFX.Web.Modules
             services.AddTransient<IGenericRepository<TaskStatus>, GenericRepository<TaskStatus>>();
             services.AddTransient<IGenericRepository<User>, GenericRepository<User>>();
             services.AddTransient<IGenericRepository<UserRole>, GenericRepository<UserRole>>();
+            services.AddTransient<IFormRecordRepository, FormRecordRepository>();
 
             //Services
             services.AddTransient<IOutputConverter, OutputConverter>();
@@ -88,6 +91,7 @@ namespace SFX.Web.Modules
             services.AddTransient<ITaskService, TaskService>();
             services.AddTransient<ITaskStatusService, TaskStatusService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IFormRecordService, FormRecordService>();
 
             //API
             services.AddTransient<IPresenter, Presenter>();
