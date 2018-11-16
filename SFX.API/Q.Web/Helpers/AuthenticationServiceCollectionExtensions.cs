@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using SFX.Core.Interfaces.ServicesAuthentication;
 using SFX.Services.Interfaces.Authentication;
 using SFX.Services.Interfaces.User;
 using System;

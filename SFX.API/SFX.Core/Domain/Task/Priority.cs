@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SFX.Core.Interfaces;
+using System.Collections.Generic;
 
 namespace SFX.Core.Domain.Task
 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SFX.Core.Interfaces;
+using System;
 
 namespace SFX.Core.Domain.Risk
 {

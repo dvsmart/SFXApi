@@ -1,4 +1,6 @@
-﻿namespace SFX.Core.Domain.Task
+﻿using SFX.Core.Interfaces;
+
+namespace SFX.Core.Domain.Task
 {
     public class TaskComment : BaseEntity
     {

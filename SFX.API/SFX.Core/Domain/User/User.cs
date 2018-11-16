@@ -1,4 +1,6 @@
-﻿namespace SFX.Core.Domain.User
+﻿using SFX.Core.Interfaces;
+
+namespace SFX.Core.Domain.User
 {
     public class User : BaseEntity
     {

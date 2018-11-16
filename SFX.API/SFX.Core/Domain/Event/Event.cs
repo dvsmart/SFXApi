@@ -1,5 +1,6 @@
 ﻿using System;
 using SFX.Core.Domain.Common;
+using SFX.Core.Interfaces;
 
 namespace SFX.Core.Domain.Event
 {

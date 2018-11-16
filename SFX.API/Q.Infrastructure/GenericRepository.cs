@@ -5,7 +5,6 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SFX.Core.Domain;
-using SFX.Core.Domain.;
 using SFX.Core.Interfaces;
 using SFX.Core.Interfaces.Repositories;
 using SFX.Infrastructure.Context;

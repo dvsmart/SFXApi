@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SFX.Core.Interfaces;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SFX.Core.Domain.User
