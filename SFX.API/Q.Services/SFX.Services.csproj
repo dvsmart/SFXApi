@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Q.Domain\SFX.Domain.csproj" />
     <ProjectReference Include="..\Q.Infrastructure\SFX.Infrastructure.csproj" />
   </ItemGroup>
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SFX.Domain;
-using SFX.Domain.Asset;
+ 
+using SFX.Core.Domain.Asset;
 using SFX.Infrastructure.Mappings;
 
 namespace SFX.Web.Controllers.Asset

@@ -1,8 +1,9 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.CustomEntity;
-using SFX.Domain.Response;
+ 
+using SFX.Core.Domain.CustomEntity;
+using SFX.Core.Domain.Response;
+using SFX.Core.Interfaces;
 using SFX.Dtos.CustomEntity;
 using SFX.Services.Interfaces.CustomEntity;
 
@@ -11,9 +12,9 @@ namespace SFX.Services.Service.CustomEntity
     public class TemplateFormRecordService : ITemplateFormRecordService
     {
         private readonly IGenericRepository<CustomEntityInstance> _customEntityInstanceRepository;
-        private readonly IGenericRepository<Domain.CustomEntity.CustomEntity> _customEntityTemplateRepository;
+        private readonly IGenericRepository<Core.Domain.CustomEntity.CustomEntity> _customEntityTemplateRepository;
 
-        public TemplateFormRecordService(IGenericRepository<CustomEntityInstance> customEntityInstanceRepository, IGenericRepository<Domain.CustomEntity.CustomEntity> customEntityTemplateRepository)
+        public TemplateFormRecordService(IGenericRepository<CustomEntityInstance> customEntityInstanceRepository, IGenericRepository<Core.Domain.CustomEntity.CustomEntity> customEntityTemplateRepository)
         {
             _customEntityInstanceRepository = customEntityInstanceRepository;
             _customEntityTemplateRepository = customEntityTemplateRepository;

@@ -3,8 +3,8 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SFX.Domain.CustomEntity;
-using SFX.Domain.Response;
+using SFX.Core.Domain.CustomEntity;
+using SFX.Core.Domain.Response;
 using SFX.Infrastructure.Context;
 using SFX.Infrastructure.IRepositories;
 
@@ -40,36 +40,15 @@ namespace SFX.Infrastructure.Repositories
             return int.Parse(Regex.Replace(lastRecord.DataId, "[^0-9]",""));
         }
 
-        public async Task<CustomEntityRecordDto> Get(int id)
+
+        Task<CustomEntityInstance> Get(int id)
         {
-            var record = await (from cer in _context.CustomEntityInstances
-                                where cer.Id == id
-                                select new CustomEntityRecordDto
-                                {
-                                    Id = cer.Id,
-                                    CustomEntityId = cer.CustomEntityId,
-                                    DataId = cer.DataId,
-                                    TemplateName = cer.CustomEntity.TemplateName,
-                                    CustomTabs = cer.CustomEntity.CustomTabs.Select(x => new CustomTabDto
-                                    {
-                                        Id = x.Id,
-                                        IsVisible = x.IsVisible,
-                                        Caption = x.Name,
-                                        IsOptional = x.IsOptional,
-                                        CustomFields = x.CustomFields.Select(cf => new CustomFieldDto
-                                        {
-                                            FieldId = cf.Id,
-                                            IsVisible = cf.IsVisible.GetValueOrDefault(),
-                                            IsRequired = cf.IsMandatory.GetValueOrDefault(),
-                                            Caption = cf.FieldName,
-                                            Type = cf.FieldType.Caption,
-                                            Value = cf.DefaultValue
-                                        })
-                                    })
-                                }).FirstOrDefaultAsync();
-            return record;
+            throw new NotImplementedException();
         }
 
-    
+        Task<CustomEntityInstance> IFormRecordRepository.Get(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

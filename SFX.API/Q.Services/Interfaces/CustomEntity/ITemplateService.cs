@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SFX.Domain.Response;
+using SFX.Core.Domain.Response;
 using SFX.Dtos.CustomEntity;
 
 namespace SFX.Services.Interfaces.CustomEntity
 {
     public interface ITemplateService
     {
-        Task<IEnumerable<Domain.CustomEntity.CustomEntity>> GetTemplates();
+        Task<IEnumerable<Core.Domain.CustomEntity.CustomEntity>> GetTemplates();
 
-        Task<SaveResponseDto> AddTemplate(Domain.CustomEntity.CustomEntity customEntity);
+        Task<SaveResponseDto> AddTemplate(Core.Domain.CustomEntity.CustomEntity customEntity);
 
-        Task<SaveResponseDto> UpdateTemplate(Domain.CustomEntity.CustomEntity customEntity);
+        Task<SaveResponseDto> UpdateTemplate(Core.Domain.CustomEntity.CustomEntity customEntity);
 
         Task<SaveResponseDto> DeleteTemplate(int id);
 

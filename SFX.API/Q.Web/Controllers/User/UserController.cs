@@ -69,14 +69,14 @@ namespace SFX.Web.Controllers.User
         public void Post([FromBody]CreateNewUserRequest newUserRequest)
         {
             if (newUserRequest == null) return;
-            var up = new Domain.User.UserProfile
+            var up = new Core.Domain.User.UserProfile
             {
                 FirstName = newUserRequest.FirstName,
                 LastName = newUserRequest.LastName,
                 Address = newUserRequest.Address,
                 DateOfBirth = DateTime.Now,
             };
-            var user = new Domain.User.User
+            var user = new Core.Domain.User.User
             {
                 EmailAddress = newUserRequest.EmailAddress,
                 UserRoleId = newUserRequest.RoleId,
@@ -115,11 +115,11 @@ namespace SFX.Web.Controllers.User
         public async Task<IActionResult> Register([FromBody]RegisterModel userDto)
         {
             // map dto to entity
-            var user = new Domain.User.User
+            var user = new Core.Domain.User.User
             {
                 UserName = userDto.Username,
                 EmailAddress = userDto.Email,
-                UserProfile = new Domain.User.UserProfile
+                UserProfile = new Core.Domain.User.UserProfile
                 {
                     FirstName = userDto.FirstName,
                     LastName = userDto.LastName,

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SFX.Domain;
-using SFX.Domain.Event;
-using SFX.Domain.Menu;
+ 
+using SFX.Core.Domain.Event;
+using SFX.Core.Domain.Menu;
 using SFX.Web.Models.Assessment;
 using SFX.Web.Models.CustomEntity;
 using SFX.Web.Models.Event;
@@ -13,9 +13,9 @@ namespace SFX.Web.Mappings
 {
     public static class Mapper
     {
-        public static Domain.Assessment.Assessment MapToAssessmentDto(CreateAssessmentRequest assessmentRequestModel)
+        public static Core.Domain.Assessment.Assessment MapToAssessmentDto(CreateAssessmentRequest assessmentRequestModel)
         {
-            var assessmentDto = new Domain.Assessment.Assessment
+            var assessmentDto = new Core.Domain.Assessment.Assessment
             {
                 AssessmentDate = assessmentRequestModel.AssessmentDate,
                 RecurrenceTypeId = assessmentRequestModel.FrequencyId,
@@ -45,7 +45,7 @@ namespace SFX.Web.Mappings
             return assessmentDto;
         }
 
-        public static CreateAssessmentRequest MapToAssessmentModel(Domain.Assessment.Assessment assessmentDto)
+        public static CreateAssessmentRequest MapToAssessmentModel(Core.Domain.Assessment.Assessment assessmentDto)
         {
             return new CreateAssessmentRequest
             {
@@ -65,7 +65,7 @@ namespace SFX.Web.Mappings
             };
         }
 
-        public static EventModel MapToEventModel(Domain.Event.Event eventDto)
+        public static EventModel MapToEventModel(Core.Domain.Event.Event eventDto)
         {
             return new EventModel
             {
@@ -102,9 +102,9 @@ namespace SFX.Web.Mappings
         }
 
 
-        public static Domain.CustomEntity.CustomEntityGroup MapToTemplateGroup(CustomEntityGroupModel customEntityGroupModel)
+        public static Core.Domain.CustomEntity.CustomEntityGroup MapToTemplateGroup(CustomEntityGroupModel customEntityGroupModel)
         {
-            return new Domain.CustomEntity.CustomEntityGroup
+            return new Core.Domain.CustomEntity.CustomEntityGroup
             {
                 Name = customEntityGroupModel.CategoryName,
                 AddedBy = 1,
@@ -115,9 +115,9 @@ namespace SFX.Web.Mappings
             };
         }
 
-        //public static Domain.CustomEntity.CustomEntity MapToCustomEntityDto(CreateCustomTemplateRequest createCustomTemplateRequest)
+        //public static Core.Domain.CustomEntity.CustomEntity MapToCustomEntityDto(CreateCustomTemplateRequest createCustomTemplateRequest)
         //{
-        //    return new Domain.CustomEntity.CustomEntity
+        //    return new Core.Domain.CustomEntity.CustomEntity
         //    {
         //        TemplateName = createCustomTemplateRequest.TemplateName,
         //        AddedBy = 1,
@@ -129,7 +129,7 @@ namespace SFX.Web.Mappings
         //    };
         //}
 
-        //public static CustomEntityGroupModel MapToCustomEntityGroupModel(Domain.CustomEntity.CustomEntityGroup groupDto)
+        //public static CustomEntityGroupModel MapToCustomEntityGroupModel(Core.Domain.CustomEntity.CustomEntityGroup groupDto)
         //{
         //    return new CustomEntityGroupModel
         //    {
@@ -138,7 +138,7 @@ namespace SFX.Web.Mappings
         //    };
         //}
 
-        //public static CustomEntityTemplateModel MapToCustomEntityTemplateModel(Domain.CustomEntity.CustomEntity templateDto)
+        //public static CustomEntityTemplateModel MapToCustomEntityTemplateModel(Core.Domain.CustomEntity.CustomEntity templateDto)
         //{
         //    return new CustomEntityTemplateModel
         //    {
@@ -147,7 +147,7 @@ namespace SFX.Web.Mappings
         //    };
         //}
 
-        //public static List<CustomEntityGroupModel> MapToCustomEntityGroups(IEnumerable<Domain.CustomEntity.CustomEntityGroup> groups)
+        //public static List<CustomEntityGroupModel> MapToCustomEntityGroups(IEnumerable<Core.Domain.CustomEntity.CustomEntityGroup> groups)
         //{
         //    if (groups == null) return new List<CustomEntityGroupModel>();
 
@@ -158,7 +158,7 @@ namespace SFX.Web.Mappings
         //    }).ToList();
         //}
 
-        //public static CustomTemplateModel MapToCustomTemplates(Domain.CustomEntity.CustomEntityGroup group)
+        //public static CustomTemplateModel MapToCustomTemplates(Core.Domain.CustomEntity.CustomEntityGroup group)
         //{
         //    if (group == null) return new CustomTemplateModel();
 
@@ -174,7 +174,7 @@ namespace SFX.Web.Mappings
         //    };
         //}
 
-        //public static List<CustomEntityTemplateModel> MaptoCustomTemplates(IEnumerable<Domain.CustomEntity.CustomEntity> templates)
+        //public static List<CustomEntityTemplateModel> MaptoCustomTemplates(IEnumerable<Core.Domain.CustomEntity.CustomEntity> templates)
         //{
         //    return templates.Select(x => new CustomEntityTemplateModel
         //    {
@@ -184,7 +184,7 @@ namespace SFX.Web.Mappings
         //}
 
 
-        public static List<CustomEntityInstanceGridModel> MapToCustomEntityValueGridModel(IList<Domain.CustomEntity.CustomEntityInstance> customEntityInstances)
+        public static List<CustomEntityInstanceGridModel> MapToCustomEntityValueGridModel(IList<Core.Domain.CustomEntity.CustomEntityInstance> customEntityInstances)
         {
             var recordModel = new List<CustomEntityInstanceGridModel>();
             if (customEntityInstances == null) return recordModel;

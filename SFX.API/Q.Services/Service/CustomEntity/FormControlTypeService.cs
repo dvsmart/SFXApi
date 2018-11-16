@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.CustomEntity;
+ 
+using SFX.Core.Domain.CustomEntity;
 using SFX.Services.Interfaces.CustomEntity;
 
 namespace SFX.Services.Service.CustomEntity

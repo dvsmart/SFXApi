@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SFX.Domain.Menu;
+using SFX.Core.Domain.Menu;
 
 namespace SFX.Services.Interfaces.Menu
 {

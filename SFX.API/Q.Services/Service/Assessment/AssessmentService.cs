@@ -1,18 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.Response;
-using SFX.Services.Helper;
+ 
+using SFX.Core.Domain.Response;
+using SFX.Core.Interfaces;
+using SFX.Core.Interfaces.Repositories;
 using SFX.Services.Interfaces.Assessment;
 
 namespace SFX.Services.Service.Assessment
 {
     public class AssessmentService : IAssessmentService
     {
-        private readonly IGenericRepository<Domain.Assessment.Assessment> _assessmentRepository;
+        private readonly IGenericRepository<Core.Domain.Assessment.Assessment> _assessmentRepository;
 
-        public AssessmentService(IGenericRepository<Domain.Assessment.Assessment> assessmentRepository)
+        public AssessmentService(IGenericRepository<Core.Domain.Assessment.Assessment> assessmentRepository)
         {
             _assessmentRepository = assessmentRepository;
         }
@@ -29,20 +30,20 @@ namespace SFX.Services.Service.Assessment
             await _assessmentRepository.DeleteAllAsync(assessments.ToList());
         }
 
-        public async Task<PagedResult<Domain.Assessment.Assessment>> GetAll(int page, int? pageSize)
+        public async Task<PagedResult<Core.Domain.Assessment.Assessment>> GetAll(int page, int? pageSize)
         {
             return await _assessmentRepository.GetPagedList(page, pageSize);
         }
 
-        public async Task<Domain.Assessment.Assessment> GetById(int id)
+        public async Task<Core.Domain.Assessment.Assessment> GetById(int id)
         {
             return await _assessmentRepository.FindAsync(x=>x.Id == id);
         }
 
-        public async Task<SaveResponseDto> Insert(Domain.Assessment.Assessment entity)
+        public async Task<SaveResponseDto> Insert(Core.Domain.Assessment.Assessment entity)
         {
             var id = _assessmentRepository.GetLast().Id;
-            entity.DataId = DataIdGenerationService.GenerateDataId(id, "AM");
+            entity.DataId = "";// DataIdGenerationService.GenerateDataId(id, "AM");
             var response = await _assessmentRepository.AddAsync(entity);
             return new SaveResponseDto
             {
@@ -52,12 +53,12 @@ namespace SFX.Services.Service.Assessment
             };
         }
 
-        public async Task<SaveResponseDto> Update(Domain.Assessment.Assessment entity)
+        public async Task<SaveResponseDto> Update(Core.Domain.Assessment.Assessment entity)
         {
             if(entity.DataId == null)
             {
                 var id = _assessmentRepository.GetLast().Id;
-                entity.DataId = DataIdGenerationService.GenerateDataId(id, "AM");
+                entity.DataId = "";//DataIdGenerationService.GenerateDataId(id, "AM");
             }
             var response = await _assessmentRepository.UpdateAsync(entity,entity.Id);
             return new SaveResponseDto

@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.Asset;
-using SFX.Domain.Response;
-using SFX.Services.Helper;
+
+using SFX.Core.Domain.Asset;
+using SFX.Core.Domain.Response;
+using SFX.Core.Interfaces;
+using SFX.Core.Interfaces.Repositories;
 using SFX.Services.Interfaces.Asset.Properties;
+using SFX.Services.Interfaces.Generic;
 
 namespace SFX.Services.Service.Asset.Properties
 {
     public class AssetPropertyService : IAssetPropertyService
     {
         private readonly IGenericRepository<AssetProperty> _assetPropertyRepository;
-        private readonly IGenericRepository<Domain.Asset.Asset> _assetRepository;
+        private readonly IGenericRepository<Core.Domain.Asset.Asset> _assetRepository;
 
-        public AssetPropertyService(IGenericRepository<AssetProperty> assetPropertyRepository, IGenericRepository<Domain.Asset.Asset> assetRepository)
+        public AssetPropertyService(IGenericRepository<AssetProperty> assetPropertyRepository, IGenericRepository<Core.Domain.Asset.Asset> assetRepository)
         {
             _assetRepository = assetRepository;
             _assetPropertyRepository = assetPropertyRepository;
@@ -45,7 +47,7 @@ namespace SFX.Services.Service.Asset.Properties
 
         public async Task<SaveResponseDto> Insert(AssetProperty entity)
         {
-            var asset = new Domain.Asset.Asset
+            var asset = new Core.Domain.Asset.Asset
             {
                 AssetTypeId = 1,
                 AddedBy = 1,
@@ -67,7 +69,7 @@ namespace SFX.Services.Service.Asset.Properties
                 };
             entity.AssetId = asset.Id;
             var id = await _assetPropertyRepository.GetLast();
-            entity.DataId = DataIdGenerationService.GenerateDataId(id, "AR");
+            entity.DataId = "";// DataIdGenerationService.GenerateDataId(id, "AR");
             var propertySavedResponse = await _assetPropertyRepository.AddAsync(entity);
             return new SaveResponseDto
             {
@@ -83,7 +85,7 @@ namespace SFX.Services.Service.Asset.Properties
             if (entity.DataId == null)
             {
                 var id = _assetPropertyRepository.GetLast().Id;
-                entity.DataId = DataIdGenerationService.GenerateDataId(id, "AR");
+                entity.DataId = "";//DataIdGenerationService.GenerateDataId(id, "AR");
             }
             var response = await _assetPropertyRepository.UpdateAsync(entity, entity.Id);
             return new SaveResponseDto
@@ -93,6 +95,11 @@ namespace SFX.Services.Service.Asset.Properties
                 SaveSuccessful = response != null,
                 ErrorMessage = response == null ? string.Empty : "update failed"
             };
+        }
+
+        Task<PagedResult<AssetProperty>> IGenericService<AssetProperty>.GetAll(int page, int? pageSize)
+        {
+            throw new NotImplementedException();
         }
     }
 }

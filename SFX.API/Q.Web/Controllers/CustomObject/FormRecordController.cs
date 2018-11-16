@@ -27,25 +27,27 @@ namespace SFX.Web.Controllers.CustomObject
 
         [Route("[action]/{templateId}")]
         [HttpGet]
-        public async Task<IActionResult> Get(int templateId)
+        public IActionResult Get(int templateId)
         {
-            var record = await _formRecordService.GetByTemplateId(templateId);
-            return new OkObjectResult(record);
+            //var record = await _formRecordService.GetByTemplateId(templateId);
+            //return new OkObjectResult(record);
+            return Ok();
         }
 
         // GET: api/FormRecord/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public IActionResult GetById(int id)
         {
-            var record =  await _formRecordService.Get(id);
-            return new OkObjectResult(record);
+            //var record =  await _formRecordService.Get(id);
+            //return new OkObjectResult(record);
+            return Ok();
         }
 
         // POST: api/FormRecord
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]  CustomEntityInstanceModel customEntityInstanceModel)
         {
-            var customInstanceDto = new Domain.CustomEntity.CustomEntityInstance
+            var customInstanceDto = new Core.Domain.CustomEntity.CustomEntityInstance
             {
                 Id = customEntityInstanceModel.Id,
                 CustomEntityId = customEntityInstanceModel.CustomEntityId,

@@ -5,6 +5,6 @@ namespace SFX.Services.Interfaces.Task
 {
     public interface ITaskStatusService
     {
-        Task<IEnumerable<Domain.Task.TaskStatus>> List();
+        Task<IEnumerable<Core.Domain.Task.TaskStatus>> List();
     }
 }

@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.Response;
+ 
+using SFX.Core.Domain.Response;
 using SFX.Services.Interfaces.Event;
 
 namespace SFX.Services.Service.Event
 {
     public class EventService : IEventService
     {
-        private readonly IGenericRepository<Domain.Event.Event> _eventRepository;
+        private readonly IGenericRepository<Core.Domain.Event.Event> _eventRepository;
 
-        public EventService(IGenericRepository<Domain.Event.Event> eventRepository)
+        public EventService(IGenericRepository<Core.Domain.Event.Event> eventRepository)
         {
             _eventRepository = eventRepository;
         }
@@ -29,17 +29,17 @@ namespace SFX.Services.Service.Event
             
         }
 
-        public async Task<PagedResult<Domain.Event.Event>> GetAll(int page, int? pageSize)
+        public async Task<PagedResult<Core.Domain.Event.Event>> GetAll(int page, int? pageSize)
         {
             return await _eventRepository.GetPagedList(page, pageSize);
         }
 
-        public async Task<Domain.Event.Event> GetById(int id)
+        public async Task<Core.Domain.Event.Event> GetById(int id)
         {
             return await _eventRepository.FindAsync(x => x.Id == id);
         }
 
-        public async Task<SaveResponseDto> Insert(Domain.Event.Event entity)
+        public async Task<SaveResponseDto> Insert(Core.Domain.Event.Event entity)
         {
             var res = await _eventRepository.AddAsync(entity);
             return new SaveResponseDto
@@ -49,7 +49,7 @@ namespace SFX.Services.Service.Event
             };
         }
 
-        public async Task<SaveResponseDto> Update(Domain.Event.Event entity)
+        public async Task<SaveResponseDto> Update(Core.Domain.Event.Event entity)
         {
             var response = await _eventRepository.UpdateAsync(entity, entity.Id);
             return new SaveResponseDto

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.CustomEntity;
-using SFX.Domain.Response;
+ 
+using SFX.Core.Domain.CustomEntity;
+using SFX.Core.Domain.Response;
 using SFX.Services.Interfaces.CustomEntity;
 
 namespace SFX.Services.Service.CustomEntity

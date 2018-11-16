@@ -1,14 +1,14 @@
 ﻿using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
-using SFX.Domain;
-using SFX.Domain.Assessment;
-using SFX.Domain.Asset;
-using SFX.Domain.Common;
-using SFX.Domain.CustomEntity;
-using SFX.Domain.Event;
-using SFX.Domain.Menu;
-using SFX.Domain.Task;
-using SFX.Domain.User;
+ 
+using SFX.Core.Domain.Assessment;
+using SFX.Core.Domain.Asset;
+using SFX.Core.Domain.Common;
+using SFX.Core.Domain.CustomEntity;
+using SFX.Core.Domain.Event;
+using SFX.Core.Domain.Menu;
+using SFX.Core.Domain.Task;
+using SFX.Core.Domain.User;
 using SFX.Infrastructure;
 using SFX.Infrastructure.IRepositories;
 using SFX.Infrastructure.Mappings;

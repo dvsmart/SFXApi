@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.Menu;
+ 
+using SFX.Core.Domain.Menu;
 using SFX.Services.Interfaces.Menu;
 
 namespace SFX.Services.Service.Menu

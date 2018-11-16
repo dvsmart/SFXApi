@@ -2,7 +2,7 @@
 
 namespace SFX.Services.Interfaces.Event
 {
-    public interface IEventService : IGenericService<Domain.Event.Event>
+    public interface IEventService : IGenericService<Core.Domain.Event.Event>
     {
 
     }

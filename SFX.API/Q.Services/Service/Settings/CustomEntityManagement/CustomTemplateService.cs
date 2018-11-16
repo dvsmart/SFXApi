@@ -1,4 +1,4 @@
-﻿using SFX.Domain;
+﻿ 
 using SFX.Dtos.CustomEntity;
 using SFX.Services.Interfaces.Settings.CustomEntityManagement;
 using System;
@@ -10,9 +10,9 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
 {
     public sealed class CustomTemplateService : ICustomTemplateService
     {
-        private readonly IGenericRepository<Domain.CustomEntity.CustomEntity> _customTemplateRepository;
+        private readonly IGenericRepository<Core.Domain.CustomEntity.CustomEntity> _customTemplateRepository;
 
-        public CustomTemplateService(IGenericRepository<Domain.CustomEntity.CustomEntity> customTemplateRepository)
+        public CustomTemplateService(IGenericRepository<Core.Domain.CustomEntity.CustomEntity> customTemplateRepository)
         {
             _customTemplateRepository = customTemplateRepository;
         }
@@ -40,7 +40,7 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             return MapTemplateResponse(response);
         }
 
-        private CustomTemplateResponse MapTemplateResponse(Domain.CustomEntity.CustomEntity templateResponse)
+        private CustomTemplateResponse MapTemplateResponse(Core.Domain.CustomEntity.CustomEntity templateResponse)
         {
             if (templateResponse == null) return new CustomTemplateResponse();
             return new CustomTemplateResponse
@@ -53,9 +53,9 @@ namespace SFX.Services.Service.Settings.CustomEntityManagement
             };
         }
 
-        private Domain.CustomEntity.CustomEntity MapTemplateRequest(CreateCustomTemplateRequest templateRequest)
+        private Core.Domain.CustomEntity.CustomEntity MapTemplateRequest(CreateCustomTemplateRequest templateRequest)
         {
-            return new Domain.CustomEntity.CustomEntity
+            return new Core.Domain.CustomEntity.CustomEntity
             {
                 Id = templateRequest.Id,
                 TemplateName = templateRequest.TemplateName,

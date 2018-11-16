@@ -2,7 +2,8 @@
 
 namespace SFX.Services.Interfaces.Assessment
 {
-    public interface IAssessmentService : IGenericService<Domain.Assessment.Assessment>
+    using SFX.Core.Domain.Assessment;
+    public interface IAssessmentService
     {
     }
 }

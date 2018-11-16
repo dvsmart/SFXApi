@@ -1,7 +1,8 @@
 ﻿using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.CustomEntity;
-using SFX.Domain.Response;
+ 
+using SFX.Core.Domain.CustomEntity;
+using SFX.Core.Domain.Response;
+using SFX.Core.Interfaces;
 using SFX.Dtos.CustomEntity;
 
 namespace SFX.Services.Interfaces.CustomEntity
@@ -12,7 +13,7 @@ namespace SFX.Services.Interfaces.CustomEntity
 
         Task<PagedResult<CustomEntityInstance>> GetAll(int templateId, int page, int? pageSize);
 
-        Task<CustomEntityRecordDto> GetById(int id);
+        //Task<CustomEntityRecordDto> GetById(int id);
 
         Task<SaveResponseDto> Delete(int id);
 

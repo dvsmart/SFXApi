@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using SFX.Domain;
-using SFX.Domain.Asset;
+ 
+using SFX.Core.Domain.Asset;
 using SFX.Infrastructure.Mappings;
 using SFX.Web.Helpers;
 using SFX.Web.Models.Asset;

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.Common;
+ 
+using SFX.Core.Domain.Common;
 using SFX.Services.Interfaces.Reference;
 
 namespace SFX.Services.Service.Reference

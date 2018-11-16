@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.CustomEntity;
-using SFX.Domain.Response;
+ 
+using SFX.Core.Domain.CustomEntity;
+using SFX.Core.Domain.Response;
 using SFX.Dtos.CustomEntity;
 using SFX.Services.Interfaces.CustomEntity;
 
@@ -12,10 +12,10 @@ namespace SFX.Services.Service.CustomEntity
     public class TemplateTabService : ITemplateTabService
     {
         private readonly IGenericRepository<CustomTab> _customTabRepository;
-        private readonly IGenericRepository<Domain.CustomEntity.CustomEntity> _customEntityRepository;
+        private readonly IGenericRepository<Core.Domain.CustomEntity.CustomEntity> _customEntityRepository;
 
 
-        public TemplateTabService(IGenericRepository<CustomTab> customTabRepository, IGenericRepository<Domain.CustomEntity.CustomEntity> customEntityRepository)
+        public TemplateTabService(IGenericRepository<CustomTab> customTabRepository, IGenericRepository<Core.Domain.CustomEntity.CustomEntity> customEntityRepository)
         {
             _customTabRepository = customTabRepository;
             _customEntityRepository = customEntityRepository;

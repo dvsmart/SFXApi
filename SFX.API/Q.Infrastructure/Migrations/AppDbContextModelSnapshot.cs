@@ -19,7 +19,7 @@ namespace SFX.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SFX.Domain.Assessment.Assessment", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Assessment.Assessment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -75,7 +75,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("Assessments");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Assessment.AssessmentScope", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Assessment.AssessmentScope", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -100,7 +100,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("AssessmentScopes");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Assessment.AssessmentStatus", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Assessment.AssessmentStatus", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -125,7 +125,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("AssessmentStatuses");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Assessment.AssessmentType", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Assessment.AssessmentType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -150,7 +150,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("AssessmentTypes");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Asset.Asset", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Asset.Asset", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -185,7 +185,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("Assets");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Asset.AssetProperty", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Asset.AssetProperty", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -247,7 +247,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("AssetProperties");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Asset.AssetType", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Asset.AssetType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -278,7 +278,7 @@ namespace SFX.Infrastructure.Migrations
                     );
                 });
 
-            modelBuilder.Entity("SFX.Domain.Common.RecurrenceType", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Common.RecurrenceType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -315,7 +315,7 @@ namespace SFX.Infrastructure.Migrations
                     );
                 });
 
-            modelBuilder.Entity("SFX.Domain.CustomEntity.CustomEntity", b =>
+            modelBuilder.Entity("SFX.Core.Domain.CustomEntity.CustomEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -344,7 +344,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("CustomEntityDefinitions");
                 });
 
-            modelBuilder.Entity("SFX.Domain.CustomEntity.CustomEntityGroup", b =>
+            modelBuilder.Entity("SFX.Core.Domain.CustomEntity.CustomEntityGroup", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -369,7 +369,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("CustomEntityGroups");
                 });
 
-            modelBuilder.Entity("SFX.Domain.CustomEntity.CustomEntityInstance", b =>
+            modelBuilder.Entity("SFX.Core.Domain.CustomEntity.CustomEntityInstance", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -402,7 +402,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("CustomEntityInstances");
                 });
 
-            modelBuilder.Entity("SFX.Domain.CustomEntity.CustomField", b =>
+            modelBuilder.Entity("SFX.Core.Domain.CustomEntity.CustomField", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -449,7 +449,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("CustomFields");
                 });
 
-            modelBuilder.Entity("SFX.Domain.CustomEntity.CustomFieldType", b =>
+            modelBuilder.Entity("SFX.Core.Domain.CustomEntity.CustomFieldType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -479,7 +479,7 @@ namespace SFX.Infrastructure.Migrations
                     );
                 });
 
-            modelBuilder.Entity("SFX.Domain.CustomEntity.CustomFieldValue", b =>
+            modelBuilder.Entity("SFX.Core.Domain.CustomEntity.CustomFieldValue", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -512,7 +512,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("CustomFieldValues");
                 });
 
-            modelBuilder.Entity("SFX.Domain.CustomEntity.CustomTab", b =>
+            modelBuilder.Entity("SFX.Core.Domain.CustomEntity.CustomTab", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -547,7 +547,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("CustomTabs");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Event.Event", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Event.Event", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -588,7 +588,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("Events");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Menu.MenuGroup", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Menu.MenuGroup", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -621,7 +621,7 @@ namespace SFX.Infrastructure.Migrations
                     );
                 });
 
-            modelBuilder.Entity("SFX.Domain.Menu.MenuItem", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Menu.MenuItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -674,7 +674,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("MenuItems");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Task.Task", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Task.Task", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -721,7 +721,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("Tasks");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Task.TaskComment", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Task.TaskComment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -750,7 +750,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("TaskComments");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Task.TaskPriority", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Task.TaskPriority", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -775,7 +775,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("TaskPriorities");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Task.TaskStatus", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Task.TaskStatus", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -802,7 +802,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("TaskStatuses");
                 });
 
-            modelBuilder.Entity("SFX.Domain.User.User", b =>
+            modelBuilder.Entity("SFX.Core.Domain.User.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -839,7 +839,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("SFX.Domain.User.UserProfile", b =>
+            modelBuilder.Entity("SFX.Core.Domain.User.UserProfile", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -879,7 +879,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("UserProfile");
                 });
 
-            modelBuilder.Entity("SFX.Domain.User.UserRole", b =>
+            modelBuilder.Entity("SFX.Core.Domain.User.UserRole", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -908,151 +908,151 @@ namespace SFX.Infrastructure.Migrations
                     );
                 });
 
-            modelBuilder.Entity("SFX.Domain.Assessment.Assessment", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Assessment.Assessment", b =>
                 {
-                    b.HasOne("SFX.Domain.Assessment.AssessmentScope", "AssessmentScope")
+                    b.HasOne("SFX.Core.Domain.Assessment.AssessmentScope", "AssessmentScope")
                         .WithMany("Assessments")
                         .HasForeignKey("AssessmentScopeId");
 
-                    b.HasOne("SFX.Domain.Assessment.AssessmentStatus")
+                    b.HasOne("SFX.Core.Domain.Assessment.AssessmentStatus")
                         .WithMany("Assessments")
                         .HasForeignKey("AssessmentStatusId");
 
-                    b.HasOne("SFX.Domain.Assessment.AssessmentType", "AssessmentType")
+                    b.HasOne("SFX.Core.Domain.Assessment.AssessmentType", "AssessmentType")
                         .WithMany("Assessments")
                         .HasForeignKey("AssessmentTypeId");
 
-                    b.HasOne("SFX.Domain.Common.RecurrenceType", "RecurrenceType")
+                    b.HasOne("SFX.Core.Domain.Common.RecurrenceType", "RecurrenceType")
                         .WithMany("Assessments")
                         .HasForeignKey("RecurrenceTypeId");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Asset.Asset", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Asset.Asset", b =>
                 {
-                    b.HasOne("SFX.Domain.Asset.AssetType", "AssetType")
+                    b.HasOne("SFX.Core.Domain.Asset.AssetType", "AssetType")
                         .WithMany()
                         .HasForeignKey("AssetTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SFX.Domain.Asset.AssetProperty", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Asset.AssetProperty", b =>
                 {
-                    b.HasOne("SFX.Domain.Asset.Asset", "Asset")
+                    b.HasOne("SFX.Core.Domain.Asset.Asset", "Asset")
                         .WithMany("AssetProperties")
                         .HasForeignKey("AssetId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SFX.Domain.CustomEntity.CustomEntity", b =>
+            modelBuilder.Entity("SFX.Core.Domain.CustomEntity.CustomEntity", b =>
                 {
-                    b.HasOne("SFX.Domain.CustomEntity.CustomEntityGroup", "EntityGroup")
+                    b.HasOne("SFX.Core.Domain.CustomEntity.CustomEntityGroup", "EntityGroup")
                         .WithMany("CustomEntities")
                         .HasForeignKey("EntityGroupId");
                 });
 
-            modelBuilder.Entity("SFX.Domain.CustomEntity.CustomEntityInstance", b =>
+            modelBuilder.Entity("SFX.Core.Domain.CustomEntity.CustomEntityInstance", b =>
                 {
-                    b.HasOne("SFX.Domain.CustomEntity.CustomEntity", "CustomEntity")
+                    b.HasOne("SFX.Core.Domain.CustomEntity.CustomEntity", "CustomEntity")
                         .WithMany("CustomEntityInstances")
                         .HasForeignKey("CustomEntityId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SFX.Domain.CustomEntity.CustomField", b =>
+            modelBuilder.Entity("SFX.Core.Domain.CustomEntity.CustomField", b =>
                 {
-                    b.HasOne("SFX.Domain.CustomEntity.CustomEntity", "CustomEntity")
+                    b.HasOne("SFX.Core.Domain.CustomEntity.CustomEntity", "CustomEntity")
                         .WithMany("CustomFields")
                         .HasForeignKey("CustomEntityId");
 
-                    b.HasOne("SFX.Domain.CustomEntity.CustomTab", "CustomTab")
+                    b.HasOne("SFX.Core.Domain.CustomEntity.CustomTab", "CustomTab")
                         .WithMany("CustomFields")
                         .HasForeignKey("CustomTabId");
 
-                    b.HasOne("SFX.Domain.CustomEntity.CustomFieldType", "FieldType")
+                    b.HasOne("SFX.Core.Domain.CustomEntity.CustomFieldType", "FieldType")
                         .WithMany("CustomFields")
                         .HasForeignKey("FieldTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SFX.Domain.CustomEntity.CustomFieldValue", b =>
+            modelBuilder.Entity("SFX.Core.Domain.CustomEntity.CustomFieldValue", b =>
                 {
-                    b.HasOne("SFX.Domain.CustomEntity.CustomEntityInstance", "CustomEntityRecord")
+                    b.HasOne("SFX.Core.Domain.CustomEntity.CustomEntityInstance", "CustomEntityRecord")
                         .WithMany("CustomFieldValues")
                         .HasForeignKey("CustomEntityRecordId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SFX.Domain.CustomEntity.CustomField", "CustomField")
+                    b.HasOne("SFX.Core.Domain.CustomEntity.CustomField", "CustomField")
                         .WithMany()
                         .HasForeignKey("CustomFieldId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SFX.Domain.CustomEntity.CustomTab", b =>
+            modelBuilder.Entity("SFX.Core.Domain.CustomEntity.CustomTab", b =>
                 {
-                    b.HasOne("SFX.Domain.CustomEntity.CustomEntity", "CustomEntity")
+                    b.HasOne("SFX.Core.Domain.CustomEntity.CustomEntity", "CustomEntity")
                         .WithMany("CustomTabs")
                         .HasForeignKey("CustomEntityId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SFX.Domain.Event.Event", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Event.Event", b =>
                 {
-                    b.HasOne("SFX.Domain.Common.RecurrenceType", "RecurrenceType")
+                    b.HasOne("SFX.Core.Domain.Common.RecurrenceType", "RecurrenceType")
                         .WithMany("Events")
                         .HasForeignKey("RecurrenceTypeId");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Menu.MenuItem", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Menu.MenuItem", b =>
                 {
-                    b.HasOne("SFX.Domain.Menu.MenuGroup", "MenuGroup")
+                    b.HasOne("SFX.Core.Domain.Menu.MenuGroup", "MenuGroup")
                         .WithMany("MenuItems")
                         .HasForeignKey("MenuGroupId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SFX.Domain.Menu.MenuItem", "Parent")
+                    b.HasOne("SFX.Core.Domain.Menu.MenuItem", "Parent")
                         .WithMany("Children")
                         .HasForeignKey("ParentId");
                 });
 
-            modelBuilder.Entity("SFX.Domain.Task.Task", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Task.Task", b =>
                 {
-                    b.HasOne("SFX.Domain.Common.RecurrenceType", "RecurrenceType")
+                    b.HasOne("SFX.Core.Domain.Common.RecurrenceType", "RecurrenceType")
                         .WithMany("Tasks")
                         .HasForeignKey("RecurrenceTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SFX.Domain.Task.TaskPriority", "TaskPriority")
+                    b.HasOne("SFX.Core.Domain.Task.TaskPriority", "TaskPriority")
                         .WithMany("Tasks")
                         .HasForeignKey("TaskPriorityId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SFX.Domain.Task.TaskStatus", "TaskStatus")
+                    b.HasOne("SFX.Core.Domain.Task.TaskStatus", "TaskStatus")
                         .WithMany("Tasks")
                         .HasForeignKey("TaskStatusId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SFX.Domain.Task.TaskComment", b =>
+            modelBuilder.Entity("SFX.Core.Domain.Task.TaskComment", b =>
                 {
-                    b.HasOne("SFX.Domain.Task.Task", "Task")
+                    b.HasOne("SFX.Core.Domain.Task.Task", "Task")
                         .WithMany("TaskComments")
                         .HasForeignKey("TaskId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SFX.Domain.User.User", b =>
+            modelBuilder.Entity("SFX.Core.Domain.User.User", b =>
                 {
-                    b.HasOne("SFX.Domain.User.UserRole", "UserRole")
+                    b.HasOne("SFX.Core.Domain.User.UserRole", "UserRole")
                         .WithMany("Users")
                         .HasForeignKey("UserRoleId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SFX.Domain.User.UserProfile", b =>
+            modelBuilder.Entity("SFX.Core.Domain.User.UserProfile", b =>
                 {
-                    b.HasOne("SFX.Domain.User.User")
+                    b.HasOne("SFX.Core.Domain.User.User")
                         .WithOne("UserProfile")
-                        .HasForeignKey("SFX.Domain.User.UserProfile", "UserId")
+                        .HasForeignKey("SFX.Core.Domain.User.UserProfile", "UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

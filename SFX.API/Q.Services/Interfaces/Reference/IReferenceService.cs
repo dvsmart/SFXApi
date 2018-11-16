@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SFX.Domain.Common;
+using SFX.Core.Domain.Common;
 
 namespace SFX.Services.Interfaces.Reference
 {

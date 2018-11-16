@@ -1,4 +1,4 @@
-﻿using SFX.Domain.Asset;
+﻿using SFX.Core.Domain.Asset;
 using SFX.Services.Interfaces.Generic;
 
 namespace SFX.Services.Interfaces.Asset.Properties

@@ -21,7 +21,7 @@ namespace SFX.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Q.Domain.Assessment.Assessment", b =>
+            modelBuilder.Entity("Q.Core.Domain.Assessment.Assessment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -77,7 +77,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("Assessments");
                 });
 
-            modelBuilder.Entity("Q.Domain.Assessment.AssessmentScope", b =>
+            modelBuilder.Entity("Q.Core.Domain.Assessment.AssessmentScope", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -102,7 +102,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("AssessmentScopes");
                 });
 
-            modelBuilder.Entity("Q.Domain.Assessment.AssessmentStatus", b =>
+            modelBuilder.Entity("Q.Core.Domain.Assessment.AssessmentStatus", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -127,7 +127,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("AssessmentStatuses");
                 });
 
-            modelBuilder.Entity("Q.Domain.Assessment.AssessmentType", b =>
+            modelBuilder.Entity("Q.Core.Domain.Assessment.AssessmentType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -152,7 +152,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("AssessmentTypes");
                 });
 
-            modelBuilder.Entity("Q.Domain.Asset.Asset", b =>
+            modelBuilder.Entity("Q.Core.Domain.Asset.Asset", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -187,7 +187,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("Assets");
                 });
 
-            modelBuilder.Entity("Q.Domain.Asset.AssetProperty", b =>
+            modelBuilder.Entity("Q.Core.Domain.Asset.AssetProperty", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -249,7 +249,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("AssetProperties");
                 });
 
-            modelBuilder.Entity("Q.Domain.Asset.AssetType", b =>
+            modelBuilder.Entity("Q.Core.Domain.Asset.AssetType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -280,7 +280,7 @@ namespace SFX.Infrastructure.Migrations
                     );
                 });
 
-            modelBuilder.Entity("Q.Domain.Common.RecurrenceType", b =>
+            modelBuilder.Entity("Q.Core.Domain.Common.RecurrenceType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -317,7 +317,7 @@ namespace SFX.Infrastructure.Migrations
                     );
                 });
 
-            modelBuilder.Entity("Q.Domain.CustomEntity.CustomEntity", b =>
+            modelBuilder.Entity("Q.Core.Domain.CustomEntity.CustomEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -346,7 +346,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("CustomEntityDefinitions");
                 });
 
-            modelBuilder.Entity("Q.Domain.CustomEntity.CustomEntityGroup", b =>
+            modelBuilder.Entity("Q.Core.Domain.CustomEntity.CustomEntityGroup", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -371,7 +371,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("CustomEntityGroups");
                 });
 
-            modelBuilder.Entity("Q.Domain.CustomEntity.CustomEntityInstance", b =>
+            modelBuilder.Entity("Q.Core.Domain.CustomEntity.CustomEntityInstance", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -404,7 +404,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("CustomEntityInstances");
                 });
 
-            modelBuilder.Entity("Q.Domain.CustomEntity.CustomField", b =>
+            modelBuilder.Entity("Q.Core.Domain.CustomEntity.CustomField", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -447,7 +447,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("CustomFields");
                 });
 
-            modelBuilder.Entity("Q.Domain.CustomEntity.CustomFieldType", b =>
+            modelBuilder.Entity("Q.Core.Domain.CustomEntity.CustomFieldType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -477,7 +477,7 @@ namespace SFX.Infrastructure.Migrations
                     );
                 });
 
-            modelBuilder.Entity("Q.Domain.CustomEntity.CustomFieldValue", b =>
+            modelBuilder.Entity("Q.Core.Domain.CustomEntity.CustomFieldValue", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -508,7 +508,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("CustomFieldValues");
                 });
 
-            modelBuilder.Entity("Q.Domain.CustomEntity.CustomTab", b =>
+            modelBuilder.Entity("Q.Core.Domain.CustomEntity.CustomTab", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -541,7 +541,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("CustomTabs");
                 });
 
-            modelBuilder.Entity("Q.Domain.Event.Event", b =>
+            modelBuilder.Entity("Q.Core.Domain.Event.Event", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -582,7 +582,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("Events");
                 });
 
-            modelBuilder.Entity("Q.Domain.Menu.MenuGroup", b =>
+            modelBuilder.Entity("Q.Core.Domain.Menu.MenuGroup", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -615,7 +615,7 @@ namespace SFX.Infrastructure.Migrations
                     );
                 });
 
-            modelBuilder.Entity("Q.Domain.Menu.MenuItem", b =>
+            modelBuilder.Entity("Q.Core.Domain.Menu.MenuItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -668,7 +668,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("MenuItems");
                 });
 
-            modelBuilder.Entity("Q.Domain.Task.Task", b =>
+            modelBuilder.Entity("Q.Core.Domain.Task.Task", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -715,7 +715,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("Tasks");
                 });
 
-            modelBuilder.Entity("Q.Domain.Task.TaskComment", b =>
+            modelBuilder.Entity("Q.Core.Domain.Task.TaskComment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -744,7 +744,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("TaskComments");
                 });
 
-            modelBuilder.Entity("Q.Domain.Task.TaskPriority", b =>
+            modelBuilder.Entity("Q.Core.Domain.Task.TaskPriority", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -769,7 +769,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("TaskPriorities");
                 });
 
-            modelBuilder.Entity("Q.Domain.Task.TaskStatus", b =>
+            modelBuilder.Entity("Q.Core.Domain.Task.TaskStatus", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -796,7 +796,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("TaskStatuses");
                 });
 
-            modelBuilder.Entity("Q.Domain.User.User", b =>
+            modelBuilder.Entity("Q.Core.Domain.User.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -833,7 +833,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Q.Domain.User.UserProfile", b =>
+            modelBuilder.Entity("Q.Core.Domain.User.UserProfile", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -876,7 +876,7 @@ namespace SFX.Infrastructure.Migrations
                     b.ToTable("UserProfile");
                 });
 
-            modelBuilder.Entity("Q.Domain.User.UserRole", b =>
+            modelBuilder.Entity("Q.Core.Domain.User.UserRole", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -905,144 +905,144 @@ namespace SFX.Infrastructure.Migrations
                     );
                 });
 
-            modelBuilder.Entity("Q.Domain.Assessment.Assessment", b =>
+            modelBuilder.Entity("Q.Core.Domain.Assessment.Assessment", b =>
                 {
-                    b.HasOne("Q.Domain.Assessment.AssessmentScope", "AssessmentScope")
+                    b.HasOne("Q.Core.Domain.Assessment.AssessmentScope", "AssessmentScope")
                         .WithMany("Assessments")
                         .HasForeignKey("AssessmentScopeId");
 
-                    b.HasOne("Q.Domain.Assessment.AssessmentStatus")
+                    b.HasOne("Q.Core.Domain.Assessment.AssessmentStatus")
                         .WithMany("Assessments")
                         .HasForeignKey("AssessmentStatusId");
 
-                    b.HasOne("Q.Domain.Assessment.AssessmentType", "AssessmentType")
+                    b.HasOne("Q.Core.Domain.Assessment.AssessmentType", "AssessmentType")
                         .WithMany("Assessments")
                         .HasForeignKey("AssessmentTypeId");
 
-                    b.HasOne("Q.Domain.Common.RecurrenceType", "RecurrenceType")
+                    b.HasOne("Q.Core.Domain.Common.RecurrenceType", "RecurrenceType")
                         .WithMany("Assessments")
                         .HasForeignKey("RecurrenceTypeId");
                 });
 
-            modelBuilder.Entity("Q.Domain.Asset.Asset", b =>
+            modelBuilder.Entity("Q.Core.Domain.Asset.Asset", b =>
                 {
-                    b.HasOne("Q.Domain.Asset.AssetType", "AssetType")
+                    b.HasOne("Q.Core.Domain.Asset.AssetType", "AssetType")
                         .WithMany()
                         .HasForeignKey("AssetTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Q.Domain.Asset.AssetProperty", b =>
+            modelBuilder.Entity("Q.Core.Domain.Asset.AssetProperty", b =>
                 {
-                    b.HasOne("Q.Domain.Asset.Asset", "Asset")
+                    b.HasOne("Q.Core.Domain.Asset.Asset", "Asset")
                         .WithMany("AssetProperties")
                         .HasForeignKey("AssetId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Q.Domain.CustomEntity.CustomEntity", b =>
+            modelBuilder.Entity("Q.Core.Domain.CustomEntity.CustomEntity", b =>
                 {
-                    b.HasOne("Q.Domain.CustomEntity.CustomEntityGroup", "EntityGroup")
+                    b.HasOne("Q.Core.Domain.CustomEntity.CustomEntityGroup", "EntityGroup")
                         .WithMany("CustomEntities")
                         .HasForeignKey("EntityGroupId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Q.Domain.CustomEntity.CustomEntityInstance", b =>
+            modelBuilder.Entity("Q.Core.Domain.CustomEntity.CustomEntityInstance", b =>
                 {
-                    b.HasOne("Q.Domain.CustomEntity.CustomEntity", "CustomEntity")
+                    b.HasOne("Q.Core.Domain.CustomEntity.CustomEntity", "CustomEntity")
                         .WithMany("CustomEntityInstances")
                         .HasForeignKey("CustomEntityId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Q.Domain.CustomEntity.CustomField", b =>
+            modelBuilder.Entity("Q.Core.Domain.CustomEntity.CustomField", b =>
                 {
-                    b.HasOne("Q.Domain.CustomEntity.CustomTab", "CustomTab")
+                    b.HasOne("Q.Core.Domain.CustomEntity.CustomTab", "CustomTab")
                         .WithMany("CustomFields")
                         .HasForeignKey("CustomTabId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Q.Domain.CustomEntity.CustomFieldType", "FieldType")
+                    b.HasOne("Q.Core.Domain.CustomEntity.CustomFieldType", "FieldType")
                         .WithMany("CustomFields")
                         .HasForeignKey("FieldTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Q.Domain.CustomEntity.CustomFieldValue", b =>
+            modelBuilder.Entity("Q.Core.Domain.CustomEntity.CustomFieldValue", b =>
                 {
-                    b.HasOne("Q.Domain.CustomEntity.CustomEntityInstance", "CustomEntityRecord")
+                    b.HasOne("Q.Core.Domain.CustomEntity.CustomEntityInstance", "CustomEntityRecord")
                         .WithMany("CustomFieldValues")
                         .HasForeignKey("CustomEntityRecordId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Q.Domain.CustomEntity.CustomTab", b =>
+            modelBuilder.Entity("Q.Core.Domain.CustomEntity.CustomTab", b =>
                 {
-                    b.HasOne("Q.Domain.CustomEntity.CustomEntity", "CustomEntity")
+                    b.HasOne("Q.Core.Domain.CustomEntity.CustomEntity", "CustomEntity")
                         .WithMany("CustomTabs")
                         .HasForeignKey("CustomEntityId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Q.Domain.Event.Event", b =>
+            modelBuilder.Entity("Q.Core.Domain.Event.Event", b =>
                 {
-                    b.HasOne("Q.Domain.Common.RecurrenceType", "RecurrenceType")
+                    b.HasOne("Q.Core.Domain.Common.RecurrenceType", "RecurrenceType")
                         .WithMany("Events")
                         .HasForeignKey("RecurrenceTypeId");
                 });
 
-            modelBuilder.Entity("Q.Domain.Menu.MenuItem", b =>
+            modelBuilder.Entity("Q.Core.Domain.Menu.MenuItem", b =>
                 {
-                    b.HasOne("Q.Domain.Menu.MenuGroup", "MenuGroup")
+                    b.HasOne("Q.Core.Domain.Menu.MenuGroup", "MenuGroup")
                         .WithMany("MenuItems")
                         .HasForeignKey("MenuGroupId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Q.Domain.Menu.MenuItem", "Parent")
+                    b.HasOne("Q.Core.Domain.Menu.MenuItem", "Parent")
                         .WithMany("Children")
                         .HasForeignKey("ParentId");
                 });
 
-            modelBuilder.Entity("Q.Domain.Task.Task", b =>
+            modelBuilder.Entity("Q.Core.Domain.Task.Task", b =>
                 {
-                    b.HasOne("Q.Domain.Common.RecurrenceType", "RecurrenceType")
+                    b.HasOne("Q.Core.Domain.Common.RecurrenceType", "RecurrenceType")
                         .WithMany("Tasks")
                         .HasForeignKey("RecurrenceTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Q.Domain.Task.TaskPriority", "TaskPriority")
+                    b.HasOne("Q.Core.Domain.Task.TaskPriority", "TaskPriority")
                         .WithMany("Tasks")
                         .HasForeignKey("TaskPriorityId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Q.Domain.Task.TaskStatus", "TaskStatus")
+                    b.HasOne("Q.Core.Domain.Task.TaskStatus", "TaskStatus")
                         .WithMany("Tasks")
                         .HasForeignKey("TaskStatusId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Q.Domain.Task.TaskComment", b =>
+            modelBuilder.Entity("Q.Core.Domain.Task.TaskComment", b =>
                 {
-                    b.HasOne("Q.Domain.Task.Task", "Task")
+                    b.HasOne("Q.Core.Domain.Task.Task", "Task")
                         .WithMany("TaskComments")
                         .HasForeignKey("TaskId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Q.Domain.User.User", b =>
+            modelBuilder.Entity("Q.Core.Domain.User.User", b =>
                 {
-                    b.HasOne("Q.Domain.User.UserRole", "UserRole")
+                    b.HasOne("Q.Core.Domain.User.UserRole", "UserRole")
                         .WithMany("Users")
                         .HasForeignKey("UserRoleId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Q.Domain.User.UserProfile", b =>
+            modelBuilder.Entity("Q.Core.Domain.User.UserProfile", b =>
                 {
-                    b.HasOne("Q.Domain.User.User")
+                    b.HasOne("Q.Core.Domain.User.User")
                         .WithOne("UserProfile")
-                        .HasForeignKey("Q.Domain.User.UserProfile", "UserId")
+                        .HasForeignKey("Q.Core.Domain.User.UserProfile", "UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

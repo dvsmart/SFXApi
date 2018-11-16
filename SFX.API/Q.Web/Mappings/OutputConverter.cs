@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using SFX.Domain.Assessment;
-using SFX.Domain.Asset;
-using SFX.Domain.CustomEntity;
-using SFX.Domain.Event;
-using SFX.Domain.Task;
-using SFX.Domain.User;
+using SFX.Core.Domain.Assessment;
+using SFX.Core.Domain.Asset;
+using SFX.Core.Domain.CustomEntity;
+using SFX.Core.Domain.Event;
+using SFX.Core.Domain.Task;
+using SFX.Core.Domain.User;
 using SFX.Infrastructure.Mappings;
 using SFX.Web.Models.Assessment;
 using SFX.Web.Models.Asset;

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SFX.Domain.Task;
+using SFX.Core.Domain.Task;
 
 namespace SFX.Services.Interfaces.Task
 {

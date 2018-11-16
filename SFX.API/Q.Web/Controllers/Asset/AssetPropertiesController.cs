@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using SFX.Domain.Asset;
+using SFX.Core.Domain.Asset;
 using SFX.Infrastructure.Mappings;
 using SFX.Services.Interfaces.Asset.Properties;
 using SFX.Web.Models;

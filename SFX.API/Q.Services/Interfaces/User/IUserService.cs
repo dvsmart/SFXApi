@@ -1,22 +1,23 @@
 ﻿using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.Response;
+ 
+using SFX.Core.Domain.Response;
+using SFX.Core.Interfaces;
 
 namespace SFX.Services.Interfaces.User
 {
     public interface IUserService
     {
-        void Add(Domain.User.User user);
+        void Add(Core.Domain.User.User user);
 
-        Domain.User.User Authenticate(string username, string password);
+        Core.Domain.User.User Authenticate(string username, string password);
 
-        Task<PagedResult<Domain.User.User>> GetAll(IGridRequest request);
+        Task<PagedResult<Core.Domain.User.User>> GetAll(IGridRequest request);
 
-        Task<SaveResponseDto> Update(Domain.User.User entity, string password = null);
+        Task<SaveResponseDto> Update(Core.Domain.User.User entity, string password = null);
 
 
-        Domain.User.User CheckIfUserExists(int userId);
+        Core.Domain.User.User CheckIfUserExists(int userId);
 
-        Task<Domain.User.User> CreateAsync(Domain.User.User user, string password);
+        Task<Core.Domain.User.User> CreateAsync(Core.Domain.User.User user, string password);
     }
 }

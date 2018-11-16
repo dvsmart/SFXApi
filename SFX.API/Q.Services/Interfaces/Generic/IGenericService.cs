@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.Response;
+ 
+using SFX.Core.Domain.Response;
+using SFX.Core.Interfaces;
 
 namespace SFX.Services.Interfaces.Generic
 {

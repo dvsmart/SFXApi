@@ -1,35 +1,35 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.Response;
+ 
+using SFX.Core.Domain.Response;
 using SFX.Services.Interfaces.User;
 
 namespace SFX.Services.Service.User
 {
     public class UserService : IUserService
     {
-        private readonly IGenericRepository<Domain.User.User> _userRepository;
-        private readonly IGenericRepository<Domain.User.UserRole> _userRoleRepository;
+        private readonly IGenericRepository<Core.Domain.User.User> _userRepository;
+        private readonly IGenericRepository<Core.Domain.User.UserRole> _userRoleRepository;
 
-        public UserService(IGenericRepository<Domain.User.User> userRepository ,IGenericRepository<Domain.User.UserRole> userRoleRepository)
+        public UserService(IGenericRepository<Core.Domain.User.User> userRepository ,IGenericRepository<Core.Domain.User.UserRole> userRoleRepository)
         {
             _userRepository = userRepository;
             _userRoleRepository = userRoleRepository;
         }
 
-        public async void Add(Domain.User.User user)
+        public async void Add(Core.Domain.User.User user)
         {
             await _userRepository.AddAsync(user);
         }
 
 
-        public async Task<PagedResult<Domain.User.User>> GetAll(IGridRequest request)
+        public async Task<PagedResult<Core.Domain.User.User>> GetAll(IGridRequest request)
         {
             return await _userRepository.GetPagedList(request.Page.Value, request.PageSize.Value);
         }
 
-        public async Task<SaveResponseDto> Update(Domain.User.User entity,string password = null)
+        public async Task<SaveResponseDto> Update(Core.Domain.User.User entity,string password = null)
         {
             var user = await _userRepository.FindAsync(x => x.Id == entity.Id);
 
@@ -66,7 +66,7 @@ namespace SFX.Services.Service.User
             };
         }
 
-        public Domain.User.User Authenticate(string username, string password)
+        public Core.Domain.User.User Authenticate(string username, string password)
         {
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 return null;
@@ -85,7 +85,7 @@ namespace SFX.Services.Service.User
             return user;
         }
 
-        public async Task<Domain.User.User> CreateAsync(Domain.User.User user, string password)
+        public async Task<Core.Domain.User.User> CreateAsync(Core.Domain.User.User user, string password)
         {
             // validation
             if (string.IsNullOrWhiteSpace(password))
@@ -108,7 +108,7 @@ namespace SFX.Services.Service.User
             return user;
         }
 
-        public Domain.User.User CheckIfUserExists(int userId)
+        public Core.Domain.User.User CheckIfUserExists(int userId)
         {
             return _userRepository.FindBy(x => x.Id == userId).FirstOrDefault();
         }

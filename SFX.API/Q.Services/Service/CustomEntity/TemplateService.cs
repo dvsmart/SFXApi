@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.CustomEntity;
-using SFX.Domain.Response;
+ 
+using SFX.Core.Domain.CustomEntity;
+using SFX.Core.Domain.Response;
 using SFX.Dtos.CustomEntity;
 using SFX.Services.Interfaces.CustomEntity;
 
@@ -11,15 +11,15 @@ namespace SFX.Services.Service.CustomEntity
 {
     public class TemplateService : ITemplateService
     {
-        private readonly IGenericRepository<Domain.CustomEntity.CustomEntity> _customTemplateRepository;
+        private readonly IGenericRepository<Core.Domain.CustomEntity.CustomEntity> _customTemplateRepository;
         private readonly IGenericRepository<CustomEntityGroup> _customGroupRepository;
 
-        public TemplateService(IGenericRepository<Domain.CustomEntity.CustomEntity> customTemplateRepository, IGenericRepository<CustomEntityGroup> customGroupRepository)
+        public TemplateService(IGenericRepository<Core.Domain.CustomEntity.CustomEntity> customTemplateRepository, IGenericRepository<CustomEntityGroup> customGroupRepository)
         {
             _customTemplateRepository = customTemplateRepository;
             _customGroupRepository = customGroupRepository;
         }
-        public async Task<SaveResponseDto> AddTemplate(Domain.CustomEntity.CustomEntity customEntity)
+        public async Task<SaveResponseDto> AddTemplate(Core.Domain.CustomEntity.CustomEntity customEntity)
         {
             var res = await _customTemplateRepository.AddAsync(customEntity);
             return new SaveResponseDto
@@ -102,12 +102,12 @@ namespace SFX.Services.Service.CustomEntity
             };
         }
 
-        public async Task<IEnumerable<Domain.CustomEntity.CustomEntity>> GetTemplates()
+        public async Task<IEnumerable<Core.Domain.CustomEntity.CustomEntity>> GetTemplates()
         {
             return await _customTemplateRepository.GetAllAsync();
         }
 
-        public async Task<SaveResponseDto> UpdateTemplate(Domain.CustomEntity.CustomEntity customEntity)
+        public async Task<SaveResponseDto> UpdateTemplate(Core.Domain.CustomEntity.CustomEntity customEntity)
         {
             var res = await _customTemplateRepository.UpdateAsync(customEntity, customEntity.Id);
             return new SaveResponseDto

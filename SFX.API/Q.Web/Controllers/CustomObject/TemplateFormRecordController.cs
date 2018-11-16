@@ -45,7 +45,7 @@ namespace SFX.Web.Controllers.CustomObject
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CustomEntityInstanceModel customEntityInstanceModel)
         {
-            var customInstanceDto = new Domain.CustomEntity.CustomEntityInstance
+            var customInstanceDto = new Core.Domain.CustomEntity.CustomEntityInstance
             {
                 Id = customEntityInstanceModel.Id,
                 CustomEntityId = customEntityInstanceModel.CustomEntityId,

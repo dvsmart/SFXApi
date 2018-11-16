@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using SFX.Domain.Menu;
+using SFX.Core.Domain.Menu;
 using SFX.Services.Interfaces.Menu;
 using SFX.Web.Models.Menu;
 

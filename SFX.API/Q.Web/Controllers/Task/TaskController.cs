@@ -69,7 +69,7 @@ namespace SFX.Web.Controllers.Task
         public async Task<IActionResult> Post([FromBody]TaskModel taskModel)
         {
             taskModel.CreatedBy = 1;
-            var task = _outputConverter.Map<Domain.Task.Task>(taskModel);
+            var task = _outputConverter.Map<Core.Domain.Task.Task>(taskModel);
             await _taskService.AddTask(task);
             return Ok();
         }
@@ -78,7 +78,7 @@ namespace SFX.Web.Controllers.Task
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody]TaskModel taskModel)
         {
-            var task = _outputConverter.Map<Domain.Task.Task>(taskModel);
+            var task = _outputConverter.Map<Core.Domain.Task.Task>(taskModel);
             await _taskService.UpdateTask(id, task);
             return Ok();
         }

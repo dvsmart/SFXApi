@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SFX.Domain.CustomEntity;
+using SFX.Core.Domain.CustomEntity;
 
 namespace SFX.Services.Interfaces.CustomEntity
 {

@@ -2,15 +2,15 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using SFX.Domain.Assessment;
-using SFX.Domain.Asset;
-using SFX.Domain.Common;
-using SFX.Domain.CustomEntity;
-using SFX.Domain.Event;
-using SFX.Domain.Menu;
-using SFX.Domain.Task;
-using SFX.Domain.User;
-using UserRole = SFX.Domain.User.UserRole;
+using SFX.Core.Domain.Asset;
+using SFX.Core.Domain.Task;
+using SFX.Core.Domain.Menu;
+using SFX.Core.Domain.Event;
+using SFX.Core.Domain.Risk;
+using SFX.Core.Domain.User;
+using SFX.Core.Domain.CustomEntity;
+using SFX.Core.Domain.Common;
+using SFX.Core.Domain.Assessment;
 
 namespace SFX.Infrastructure.Context
 {

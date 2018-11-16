@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SFX.Domain;
-using SFX.Domain.Assessment;
+ 
+using SFX.Core.Domain.Assessment;
 using SFX.Services.Interfaces.Assessment;
 
 namespace SFX.Services.Service.Assessment

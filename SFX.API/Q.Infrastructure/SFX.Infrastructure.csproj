@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Q.Domain\SFX.Domain.csproj" />
+    <ProjectReference Include="..\SFX.Core\SFX.Core.csproj" />
   </ItemGroup>
 
 </Project>
